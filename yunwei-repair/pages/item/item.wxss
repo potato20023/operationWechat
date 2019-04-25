@@ -1,0 +1,78 @@
+/* pages/item/item.wxss */
+.main{
+  
+
+}
+.main .header{
+  margin-bottom:40rpx; 
+  padding: 12px 15px;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden
+}
+.main .header .left{
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden
+}
+.main .header .left image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.main .header .right{
+  padding-left: 40rpx;
+  float: left;
+  line-height: 55rpx;
+  font-size: 14px;
+}
+.main .imgList{
+  display: flex;
+  background-color: #fff;
+  padding-bottom: 20rpx;
+}
+.main .imgList image{
+  width:200rpx;
+  height:200rpx;
+  display:inline-block;
+  margin-left:10rpx;
+}
+.main .steps{
+  background-color: #fff;
+}
+.main-steps{
+  padding-bottom: 16rpx !important;
+}
+/* pages/end/end.wxss */
+.item-radio-group{
+  background: #fff;
+  display: block;
+}
+.item-radio-group .item-radio{
+  display: inline-block
+}
+.upload{
+  background: #fff;
+  padding: 20rpx 40rpx;
+  overflow: hidden;
+}
+.upload-icon {
+  background: #fff;
+  padding:40rpx;
+  border: 1rpx dashed #ddd;
+  float: left;
+
+}
+.img-item{
+  width: 140rpx;
+  height: 140rpx;
+  display: block;
+  float: left;
+  margin-left: 20rpx;
+}
+.img-item image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,112 @@
+<!--pages/repairList/repairList.wxml-->
+<view class="page container">
+  <!-- 标签导航 -->
+  <view class='tabs'>
+    <i-tabs current='{{current}}' bindchange='handleChange' color='#18c9ff'>
+      <i-tab key='1' title='进行中'></i-tab>
+      <i-tab key='2' title='已完成'></i-tab>
+    </i-tabs>
+  </view>
+  
+  <!-- 报修列表 -->
+  <view class='list' wx:if='{{current == 1}}' wx:for="{{list1}}" wx:key='{{index}}'>  
+
+    <!-- 待派单 -->
+    <view class='listItem' wx:if='{{item.status == 0}}'>
+      <i-swipeout  i-class="i-swipeout-demo-item" operateWidth="{{140}}" toggle="{{toggle}}">
+          <view slot="content" bindtouchstart='Start' bindtouchend='End'>
+            <view class='item' bindtap='toDetail' id='{{item.id}}'>
+              <view class='left_circ'>
+                <view class='circ' wx:if='{{item.status == 0}}' style='background-color:#b5b5b5;'></view>
+                <view class='circ' wx:if='{{item.status == 1}}' style='background-color:#7ecef4;'></view>
+                <view class='circ' wx:if='{{item.status == 2}}' style='background-color:#18b8ff;'></view>
+                <view class='circ' wx:if='{{item.status == 3}}' style='background-color:#f19149;'></view>
+              </view>
+              <view class='item_top'>
+                <view class='name'>{{item.type}}</view>
+                <view class='time'>{{item.createTime}}</view>
+              </view>
+              <view class='item_center'>
+                <view wx:if='{{item.status == 0}}' class='status' style='background-color:#b5b5b5;'>待派单</view>
+                <view wx:if='{{item.status == 1}}' class='status' style='background-color:#7ecef4;'>待接单</view>  
+                <view wx:if='{{item.status == 2}}' class='status' style='background-color:#18b8ff;'>维修中</view>
+                <view wx:if='{{item.status == 3}}' class='status' style='background-color:#f19149;'>已完成</view>
+              </view>
+              <view class='item_bottom'>
+                <view class='num'>工单号：{{item.id}}</view>        
+              </view>
+            </view>
+          </view>
+          <view slot="button" class="i-swipeout-demo-button-group" style="background:#18c9ff;width:300rpx;padding:68rpx 0;display:flex;">
+              <view class="i-swipeout-demo-button" style="width:140rpx;color:#fff;text-align:center;" bindtap="Edit" id='{{item.id}}'> <i-icon size="32" type="brush_fill"></i-icon></view>
+              <view class="i-swipeout-demo-button" style="width:140rpx;color:#fff;text-align:center;" bindtap="Delete" id='{{item.id}}'><i-icon size="32" type="trash"></i-icon></view>
+              <i-toast id="toast" />
+              
+          </view>
+      </i-swipeout>  
+      <i-message id="message" />
+    </view>
+    
+      
+    <!-- 已派单，维修中 -->
+    <view class='listItem' wx:else>
+      <view slot="content">
+            <view class='item' bindtap='toDetail' id='{{item.id}}'>
+              <view class='left_circ'>
+                <view class='circ' wx:if='{{item.status == 0}}' style='background-color:#b5b5b5;'></view>
+                <view class='circ' wx:if='{{item.status == 1}}' style='background-color:#7ecef4;'></view>
+                <view class='circ' wx:if='{{item.status == 2}}' style='background-color:#18b8ff;'></view>
+                <view class='circ' wx:if='{{item.status == 3}}' style='background-color:#f19149;'></view>
+              </view>
+              <view class='item_top'>
+                <view class='name'>{{item.type}}</view>
+                <view class='time'>{{item.createTime}}</view>
+              </view>
+              <view class='item_center'>
+               <view wx:if='{{item.status == 0}}' class='status' style='background-color:#b5b5b5;'>待派单</view>
+                <view wx:if='{{item.status == 1}}' class='status' style='background-color:#7ecef4;'>待接单</view>  
+                <view wx:if='{{item.status == 2}}' class='status' style='background-color:#18b8ff;'>维修中</view>
+                <view wx:if='{{item.status == 3}}' class='status' style='background-color:#f19149;'>已完成</view>
+              </view>
+              <view class='item_bottom'>
+                <view class='num'>工单号：{{item.id}}</view>        
+              </view>
+            </view>
+          </view>
+    </view>
+    
+  </view>
+
+<!-- 已完成 -->
+  <view class='list' wx:if='{{current == 2}}' wx:for="{{list2}}" wx:key='{{index}}'>      
+    <view class='item listItem' bindtap='toDetail' id='{{item.id}}'>
+      <view class='left_circ'>
+        <view class='circ' wx:if='{{item.status == 0}}' style='background-color:#b5b5b5;'></view>
+        <view class='circ' wx:if='{{item.status == 1}}' style='background-color:#7ecef4;'></view>
+        <view class='circ' wx:if='{{item.status == 2}}' style='background-color:#18b8ff;'></view>
+        <view class='circ' wx:if='{{item.status == 3}}' style='background-color:#f19149;'></view>
+      </view>
+      <view class='item_top'>
+        <view class='name'>{{item.type}}</view>
+        <view class='time'>{{item.createTime}}</view>
+      </view>
+      <view class='item_center'>
+        <view wx:if='{{item.status == 0}}' class='status' style='background-color:#b5b5b5;'>待派单</view>
+        <view wx:if='{{item.status == 1}}' class='status' style='background-color:#7ecef4;'>待接单</view>  
+        <view wx:if='{{item.status == 2}}' class='status' style='background-color:#18b8ff;'>维修中</view>
+        <view wx:if='{{item.status == 3}}' class='status' style='background-color:#f19149;'>已完成</view>
+        <!-- <view class='operation'>
+          <text>编辑</text>
+          <text>删除</text>
+        </view> -->
+      </view>
+      <view class='item_bottom'>
+        <view class='num'>工单号：{{item.id}}</view>        
+      </view>
+    </view>
+  </view>
+
+  <!-- <view wx:if="{{ifAllList}}" style='text-align:center'>---- 已加载全部数据 ----</view> -->
+  <i-divider wx:if="{{ifAllList}}" content="加载已经完成,没有其他数据" color="#18c9ff" lineColor="#18c9ff"></i-divider>
+</view>
+

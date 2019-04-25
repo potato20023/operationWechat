@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/register/register",
+    "pages/schoolIndex/schoolIndex",
+    "pages/study/study",
+    "pages/repairDetail/repairDetail",
+    "pages/repairSuccess/repairSucess",
+    "pages/test/test",
+    "pages/repairList/repairList",
+    "pages/repair/repair",
+    "pages/personal/personal",
+    "pages/updateName/updateName",
+    "pages/updatePhone/updatePhone",
+    "pages/updatePassword/updatePassword"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#18c9ff",
+    "navigationBarTitleText": "报修助手",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#fff"
+  },
+  "usingComponents": {
+    "i-button": "./static/dist/button/index",
+    "i-input": "./static/dist/input/index",
+    "i-tabs": "./static/dist/tabs/index",
+    "i-tab": "./static/dist/tab/index",
+    "i-icon": "./static/dist/icon/index",
+    "i-swipeout": "./static/dist/swipeout/index",
+    "i-action-sheet": "./static/dist/action-sheet/index",
+    "i-toast": "./static/dist/toast/index",
+    "i-message": "./static/dist/message/index",
+    "i-radio-group": "./static/dist/radio-group/index",
+    "i-radio": "./static/dist/radio/index",
+    "i-steps": "./static/dist/steps/index",
+    "i-step": "./static/dist/step/index",
+    "i-switch": "./static/dist/switch/index",
+    "i-divider": "./static/dist/divider/index",
+    "i-card": "./static/dist/card/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

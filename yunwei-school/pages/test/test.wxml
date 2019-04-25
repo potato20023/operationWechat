@@ -1,0 +1,51 @@
+<!--pages/repairDetail/repairDetail.wxml-->
+<!-- 报修详情 -->
+<view class='container'>
+  <view class='repairDetail'>
+    <form bindsubmit='repairSubmit'>
+      <!-- 设备选择 -->
+      <view class='equipment requireInput'>
+        <view class='label'>设备</view>
+        <view class='wx_select equRight'>
+          <view class='input' bindtap='bindInput'>
+            <input type='text' name='equipmentId' placeholder='请选择需要维修的设备' disabled='true' value='{{equipmentValue}}'/>
+          </view>
+          <view class='list'>
+            <view wx:for='{{equipmentList}}' wx:key='{{index}}' class='item' bindtap='chooseEqu' data-id='{{item.id}}' data-type='{{item.type}}'>
+              {{item.type}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 故障标签 -->
+      <view class='equipment requireInput'>
+        <view class='label'>故障标签</view>
+        <view class='wx_select equRight'>
+          <view class='input' bindtap='bindTag'>
+            <input type='text' name="tagId" placeholder='请选择故障标签' disabled='true' value='{{tagValue}}'/>
+          </view>
+          <view class='list'>
+            <view wx:for="{{tagList}}" wx:key="{{index}}" class='item' bindtap='chooseTag' data-id='{{item.id}}' data-name='{{item.name}}'>
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 故障描述 -->
+      <view class='describe'>
+        <view class='label'>故障描述</view>
+        <textarea name='faultDesc' placeholder='请输入50个字符以内的故障描述' maxlength='50' value='{{describeValue}}'></textarea>
+      </view>
+      <view class='uploadImg'>
+        <view class='label'>上传图片</view>
+        <image src='/static/img/charutupian.png' bindtap='chooseImage'></image>
+        <view class='imgList' wx:for='{{imgUrl}}' wx:key='{{index}}'>
+          <image src='{{item}}'></image>
+        </view>
+      </view>
+      <view>
+        <button form-type='submit'>确认提交</button>
+      </view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/updatePhone/updatePhone.wxml-->
+<view class='container'>
+  <form bindsubmit='formSubmit'>
+    <view>
+      <input name="phone" value='{{phone}}' focus='true'></input>
+      <view class='text'>一定要是您的真实电话呦(11位手机号呦)</view>
+    </view>
+    <view>
+      <button form-type='submit'>确认</button>
+    </view>
+    <i-toast id="toast" />
+  </form>
+</view>

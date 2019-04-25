@@ -1,0 +1,58 @@
+/* School/pages/repairDetail/repairDetail.wxss */
+.repairDetail{
+  width: 100%;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #6F777A;
+}
+.repairDetail .equipment{
+  width: 100%;
+}
+.repairDetail .requireInput{
+  display: flex;
+  margin-bottom: 2rpx;
+  /* justify-content: space-between; */
+}
+.repairDetail .requireInput .label{
+  width: 200rpx;
+}
+.repairDetail .requireInput .equRight{
+  width: 350rpx;
+}
+
+
+/* 选择框 -- start */
+.wx_select{
+  position: relative;
+}
+.wx_select .list{
+  width: 100%;
+  padding: 0 20rpx;
+  position: absolute;
+  background-color: #eff;
+  z-index: 10;
+}
+.wx_select .list .item{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+/* 选择框--end */
+
+/* 图片上传--start */
+.uploadImg{
+  width: 100%;
+}
+.uploadImg image{
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+}
+.uploadImg .imgList{
+  display: inline-block;
+  margin: 20rpx;
+}
+
+.repairDetail .describe textarea{
+  padding-left: 30rpx;
+}

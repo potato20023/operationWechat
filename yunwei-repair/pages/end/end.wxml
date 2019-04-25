@@ -1,0 +1,23 @@
+<!--pages/end/end.wxml-->
+<i-cell-group>
+  <i-cell title="维修完成拍照">
+    <i-icon size='24' color="#FEA54D" type="camera" slot="icon" />
+  </i-cell>
+  <view class='upload'>
+    <view class='upload-icon' bindtap='uploadFile'>
+      <i-icon type="add" size='28' />
+    </view>
+    <block wx:for="{{imgUrl}}" wx:key="{{index}}">
+      <view class='img-item'>
+        <image  src="{{item}}"></image>
+      </view>
+    </block>
+  
+  </view>
+  <i-cell title="现场备注" value="{{userName}}">
+    <i-icon size='24' color="#0098FD" type="brush" slot="icon" />
+  </i-cell>
+  <i-input type='textarea' bindchange="setRemark" maxlength='100' autofocus placeholder="备注" />
+</i-cell-group>
+<i-button type='primary' bindtap='submitData'>提交</i-button>
+

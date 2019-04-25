@@ -1,0 +1,34 @@
+<!--pages/list/list.wxml-->
+<i-tabs  current="{{ status }}" color="#10C3AE" bindchange="tabChange">
+    <i-tab key="1" title="待接单">
+    </i-tab>
+    <i-tab key="2" title="维修中">
+      tab2
+    </i-tab>
+    <i-tab key="3" title="已完成">
+      tab3
+    </i-tab>
+</i-tabs>
+ <view class='list'>
+  <block  wx:for="{{list}}"  wx:key="index">
+    <view class='list-item'  id='{{item.id}}' data-status="{{item.status}}"  bindtap='linkToContent'>
+      <view class='list-id'>工单号: {{item.id}}</view>
+      <view class='box'>
+
+        <image wx:if="{{item.awatar}}" src='{{item.awatar}}'></image>
+        <image wx:else src='../../assets/img/wode.png'></image>
+        <view class='content'>
+          <text class='type'>{{item.type}}</text>
+          <view class='time'>
+            <text class='icon-shijian iconfont'></text>  {{item.createTime}}
+          </view>
+        </view>
+      </view>
+       <view class='position'>
+          <text class='iconfont icon-dingwei'>  {{item.xxmc}}</text>
+        </view>
+    </view>
+    </block>
+  </view>
+
+

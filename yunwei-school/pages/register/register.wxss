@@ -1,0 +1,11 @@
+/* pages/register/register.wxss */
+.login .loginInput .school{
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  z-index: 10;
+}
+.school{
+  max-height: 600rpx;
+  overflow-y: auto;
+}

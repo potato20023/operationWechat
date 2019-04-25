@@ -1,0 +1,89 @@
+<!-- 维修详情页 -->
+<view class='proDetail'>
+  <view class='mode'>
+    <view class='pro'>
+      <view class='label'> 
+        <i-icon type="accessory" size='24' color='#18C9FF' />
+        维修编号
+      </view>
+      <view class='cont'>{{id}}</view>
+    </view>
+    <view wx:if='{{info.status == 2 || info.status == 3}}' class='pro'>
+      <view class='label'>
+        <i-icon type="addressbook" size='24' color='#FCAD00' />
+        维修员
+      </view>
+      <view class='cont'>{{info.remark.name}}</view>
+    </view>
+    <view wx:if='{{info.status == 2 || info.status == 3}}' class='pro'>
+      <view class='label'>
+        <i-icon type="label" size='24' color='#10B976' />
+        电话
+      </view>
+      <view class='cont'>{{info.remark.phone}}</view>
+    </view> 
+  </view>
+  <view class='mode'>
+    <view class='pros'>
+      <view class='label'>
+        <i-icon type="brush" size='24' color='#1E7DC5' />
+        故障描述
+      </view>
+      <view class='cont'>{{info.faultDesc}}</view>
+    </view>
+    <view class='pros'>
+      <view class='label'>
+        <i-icon type="camera" size='24' color='#FF8080' />  
+        上传照片
+      </view>
+      <view class='cont'>
+        <view wx:for='{{info.picture}}' wx:key='{{index}}'>
+          <image src='{{item}}' bindtap='previewImage' data-index='{{index}}'></image>
+        </view>
+      </view>      
+    </view>
+  </view>
+  <view class='mode'>
+    <view wx:if="{{verticalList.length > 1}}" class='vertical'>
+      <view class='label'>
+        <i-icon type="flag" size='24' color='#E8422A' />
+        维修进度
+      </view>
+      <i-steps direction="vertical">
+        <i-step wx:for="{{verticalList}}" wx:key="{{index}}" status="finish">
+          <view slot="title" wx:if="{{item.orderStatus == 0 && index == 0}}">待派单</view>
+          <view slot="title" wx:if="{{item.orderStatus == 0 && index != 0}}">取消订单</view>
+          <view slot="title" wx:if="{{item.orderStatus == 1}}">待接单</view>
+          <view slot="title" wx:if="{{item.orderStatus == 2}}">维修中</view>
+          <view slot="title" wx:if="{{item.orderStatus == 3}}">完成维修</view>
+          <view slot="content">
+            <text wx:if="{{item.name}}" class='reqairName'>{{item.name}}</text>
+            <i-icon type="clock_fill" size='16' style='position:relative;top:-4rpx;color:#01B56D;'/>
+            <text> {{item.updateTime}}</text>
+          </view>
+        </i-step>
+      </i-steps>
+    </view>
+    <view wx:else class='pro'>
+      <view class='label'>提交时间</view>
+      <view class='cont'>{{info.createTime}}</view>
+    </view>
+  </view>
+  <view class='mode'>
+   
+    <view wx:if='{{info.status == 3}}' class='pro'>
+      <view class='label'>处理时长</view>
+      <view class='cont'>{{day}}</view>
+    </view>
+  </view>
+  <view class='pro ifOver'>
+      <view>是否已维修完成</view>
+      <view>
+        <!-- <switch checked='{{ifOver}}' bindchange='switchChange' disabled='{{!disabled}}'/> -->
+        <i-switch value="{{ifOver}}"  size="large" bindchange='switchChange'>
+          <view slot='open'>完成</view>
+          <view slot="close">未完</view>
+        </i-switch>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,85 @@
+/* pages/repairList/repairList.wxss */
+.container{
+  background-color: #ebecf5;
+  padding-top: 100rpx;
+}
+.container .tabs{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.container .list .listItem{
+  margin: 20rpx;
+}
+.container .list .item{
+  height: 200rpx;
+  background-color: #fff;
+  padding:20rpx 20rpx 20rpx 60rpx;
+  position:relative;
+}
+.container .list .item .item_top,.container .list .item .item_center{
+  display: flex;
+  justify-content: space-between;
+}
+.container .list .item .item_top .name{
+  color: #333;
+  font-size: 30rpx;
+}
+.container .list .item .item_top .time{
+  color: #b3bbc7;
+  font-size: 26rpx;
+}
+.container .list .item .item_center{
+  margin:12rpx 0 20rpx 0;
+}
+.container .list .item .item_center .status{
+  background-color:#f19149;
+  width: 100rpx;
+  height: 30rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 14rpx;
+  font-size: 26rpx;
+  line-height: 30rpx;
+  margin-top: 6rpx;
+}
+/* .container .list .item .item_center .operation text{
+  color: #18c9ff;
+  margin-left: 10rpx;
+} */
+
+.container .list .item .item_bottom .num{
+  color: #666;
+  font-size: 28rpx;
+}
+.container .list .item .left_circ{
+  width: 35rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 58rpx;
+  left: -1rpx;
+  overflow: hidden;
+  text-align: right;
+}
+.container .list .item .left_circ .circ{
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #f19149;
+  border-radius: 50%;
+  position: absolute;
+  left:-47rpx;
+}
+
+
+/* 滑动菜单 */
+.i-swipeout-item{
+  padding: 0 20rpx !important;
+  margin: 0;
+}
+
+/* 加载完成分隔符 */
+#shadow-root .i-divider .i-divider-content{
+  background: #ebecf5 !important;
+}

@@ -1,0 +1,77 @@
+<!--pages/personal/personal.wxml-->
+<view class='container'>
+
+ <view class='infos'>
+    <image wx:if="{{user.avatar}}" src="{{user.avatar}}" bindtap='previewImage'></image>
+    <image wx:else src='{{headUrl}}'></image>
+    <view class='info'>
+      <view class='name'>{{user.name}}</view>
+      <view class='userName'>账号：{{user.username}}</view>
+    </view>
+ </view>
+
+  <view class='modular'>
+    <view class='item'>
+      <i-icon type="camera" size='24' color='#FF8080' class='icon headIcon' /> 
+      <view class='mode headPortrait' bindtap='updateHeadImg'>
+        <text class='name'>头像</text>
+        <view class='right'>
+          <image wx:if="{{user.avatar}}" src="{{user.avatar}}" bindtap='previewImage'></image>
+          <image wx:else src='{{headUrl}}'></image>
+          <view class='more'></view>
+        </view>      
+      </view>
+    </view>
+    
+    <view class='item'>
+      <i-icon type="homepage" size='24' color='#18C9FF' class='icon' />
+      <view class='mode'>
+        <text class='name'>学校</text>
+        <view class='right'>
+          <view class='cont'>{{user.xxmc}}</view>
+        </view>      
+      </view>
+    </view>   
+    <view class='item'>
+      <i-icon type="addressbook" size='24' color='#FCAD00' class='icon' />
+      <navigator url='/pages/updateName/updateName' class='mode'>
+        <text class='name'>真实姓名</text>
+        <view class='right'>
+          <view class='cont'>{{user.name}}</view>
+          <view class='more'></view>
+        </view>      
+      </navigator>
+    </view>  
+    <view class='item'>
+      <i-icon type="label" size='24' color='#10B976' class='icon' />
+      <navigator url='/pages/updatePhone/updatePhone' class='mode'>
+        <text class='name'>电话</text>
+        <view class='right'>
+          <view class='cont'>{{user.phone}}</view>
+          <view class='more'></view>
+        </view>      
+      </navigator>
+    </view>    
+    <view class='item'>
+      <i-icon type="mail" size='24' color='#E8422A' class='icon' />
+      <view class='mode'>
+        <text class='name'>账号</text>
+        <view class='right'>
+          <view class='cont'>{{user.username}}</view>
+        </view>      
+      </view>
+    </view>    
+    <view class='item'>
+      <i-icon type="lock" size='24' color='#1E7DC5' class='icon'  />
+      <navigator url='/pages/updatePassword/updatePassword' class='mode'>
+        <text class='name'>密码</text>
+        <view class='right'>
+          <view class='cont'></view>
+          <view class='more'></view>
+        </view>      
+      </navigator>
+    </view>    
+  </view>
+  <i-button bind:click="handleClick" type="warning" long="true" bind:click='signOut'>退出当前账号</i-button>
+  <i-toast id="toast" />
+</view>

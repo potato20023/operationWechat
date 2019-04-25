@@ -1,0 +1,31 @@
+
+
+<view class='home'>
+  <view class='header'>
+    <view class='title'>
+      <image src='{{headUrl}}'></image>
+    </view>
+    <view class='desc'>
+      <text class='name'>{{name}}</text> {{address}}
+    </view>
+  </view>
+  <!-- 工单列表 -->
+  <view class='list'>
+    <view class='list-item' wx:for="{{list}}"  wx:key="index">
+      <view class='list-id'>工单号: {{item.id}}</view>
+      <view class='box'  id='{{item.id}}' data-status="{{item.status}}"  bindtap='linkToContent'>
+          <image wx:if="{{item.awatar}}" src='{{item.awatar}}'></image>
+          <image wx:else src='../../assets/img/wode.png'></image>
+        <view class='content'>
+          <text class='type'>{{item.type}}</text>
+          <view class='time'>
+            <text class='icon-shijian iconfont'></text>  {{item.createTime}}
+          </view>
+        </view>
+      </view>
+       <view class='position'>
+          <text class='iconfont icon-dingwei'>  {{item.xxmc}}</text>
+        </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+/* pages/index/index.wxss */
+
+
+.header{
+  height: 240rpx;
+  background: linear-gradient(to bottom, #10C3AE, #44D29A);
+  padding-top: 40rpx;
+}
+/* .header .title{
+  line-height: 100rpx;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+} */
+.header .title{
+  text-align: center;
+}
+.header .title image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.header .title .small{
+  font-size: 16px
+}
+.header .desc{
+  color: #fff;
+  padding-top: 20rpx;
+  text-align: center;
+  font-size: 14px;
+}
+.header .desc .name{
+  font-size: 16px;
+  padding-right: 20rpx;
+}

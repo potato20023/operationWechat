@@ -1,0 +1,108 @@
+<view class='main'>
+  <view class='header'>
+    <view class='left'>
+      <image src='{{awatar}}'></image>
+    </view>
+    <view class='right'>
+      <view>
+        设备类型: {{type}}
+      </view>
+      <view>
+        学校名称: {{xxmc}}
+      </view>
+    </view>
+  </view>
+  <i-cell-group>
+    <i-cell title="位置" value="{{xxdz}}">
+      <i-icon size='24' color="#FEA54D" type="coordinates_fill" slot="icon" />
+    </i-cell>
+    <i-cell title="报修人" value="{{userName}}">
+      <i-icon size='24' color="#0098FD" type="group" slot="icon" />
+    </i-cell>
+    <i-cell title="联系电话" value="{{phone}}">
+      <i-icon size='24' color="#05BF4F" type="mobilephone" slot="icon" />
+    </i-cell>
+  </i-cell-group>
+  <i-cell-group style="margin:40rpx 0;display:block">
+    <i-cell title="故障描述" label="{{faultDesc}}">
+      <i-icon size='24' color="#FF9B7C" type="task" slot="icon" />
+    </i-cell>
+    <i-cell title="故障图片">
+      <i-icon size='24' type="picture" color="#FF9B7C" slot="icon" />
+    </i-cell>
+    <view class='imgList'>
+      <block wx:for="{{picture}}" wx:key="{{index}}">
+        <image src='{{item}}' data-index='{{index}}' bindtap='previewImg'>
+        </image>
+      </block>
+    </view>
+    <view wx:if="{{status!=1}}">
+      <i-cell title="维修进度">
+        <i-icon size='24' type="activity" color="#55EAE5" slot="icon" />
+      </i-cell>
+      <view class='steps'>
+        <i-steps direction="vertical">
+          <block wx:for="{{remark}}" wx:key="{{index}}">
+            <i-step status="finish" icon="right" i-class="main-steps">
+              <view slot="title">
+                <text wx:if="{{item.orderStatus==0}}">待接单</text>
+                <text wx:if="{{item.orderStatus==1}}">接单成功</text>
+                <text wx:if="{{item.orderStatus==2}}">维修中</text>
+                <text wx:if="{{item.orderStatus==3}}">维修完成</text>
+              </view>
+              <view slot="content" style=''>
+                <view wx:if="{{item.orderStatus==0 && item.name }}">
+                  工单转移 {{item.name}}
+                  <i-icon type="clock" /> {{item.updateTime}}
+                </view>
+                <view wx:else>
+                  {{item.name }}
+                  <i-icon type="clock" /> {{item.updateTime}}
+                </view>
+              </view>
+            </i-step>
+          </block>
+        </i-steps>
+      </view>
+    </view>
+  </i-cell-group>
+  <view wx:if="{{status!=3}}">
+  <i-row wx:if="{{status==1}}">
+    <i-col span="12" i-class="col-class">
+      <i-button type="primary" bindtap='setOrder'>接单</i-button>
+    </i-col>
+    <i-col span="12" i-class="col-class">
+      <i-button type="default" bindtap='cancelOrder'>取消</i-button>
+    </i-col>
+  </i-row>
+  <i-row wx:else>
+    <i-col span="12" i-class="col-class">
+      <i-button type="success" bindtap='endOrder'>完成维修</i-button>
+    </i-col>
+    <i-col span="12" i-class="col-class">
+      <i-button type="default" bindtap='cancelOrder'>取消</i-button>
+    </i-col>
+
+  </i-row>
+  </view>
+  <view wx:else>
+    <i-cell-group>
+  <i-cell title="维修完成图片">
+    <i-icon size='24' color="#FEA54D" type="camera" slot="icon" />
+  </i-cell>
+  <view class='upload'>
+    <block wx:for="{{b.filelist}}" wx:key="{{index}}">
+      <view class='img-item'>
+        <image  src="{{item}}"></image>
+      </view>
+    </block>
+  
+  </view>
+  <i-cell title="现场备注" value="{{workername}}">
+    <i-icon size='24' color="#0098FD" type="brush" slot="icon" />
+  </i-cell>
+  <i-input type='textarea' value='{{b.remark}}' disabled  bindblur="setRemark" maxlength='100' autofocus placeholder="备注" />
+</i-cell-group>
+  </view>
+  
+</view>

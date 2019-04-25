@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#18c9ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "报修助手",
+  "backgroundColor": "#000",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

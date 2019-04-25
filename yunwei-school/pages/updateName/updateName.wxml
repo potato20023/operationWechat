@@ -1,0 +1,13 @@
+<!--pages/updateName/updateName.wxml-->
+<view class='container'>
+  <form bindsubmit='formSubmit'>
+    <view>
+      <input name="name" value='{{name}}' focus='true'></input>
+      <view class='text'>一定要是您的真实姓名呦(2-4位汉字呦)</view>
+    </view>
+    <view>
+      <button form-type='submit'>确认</button>
+    </view>
+    <i-toast id="toast" />
+  </form>
+</view>

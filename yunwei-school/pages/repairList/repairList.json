@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#18c9ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "报修进度",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

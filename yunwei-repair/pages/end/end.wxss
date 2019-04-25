@@ -1,0 +1,32 @@
+/* pages/end/end.wxss */
+.item-radio-group{
+  background: #fff;
+  display: block;
+}
+.item-radio-group .item-radio{
+  display: inline-block
+}
+.upload{
+  background: #fff;
+  padding: 20rpx 40rpx;
+  overflow: hidden;
+}
+.upload-icon {
+  background: #fff;
+  padding:40rpx;
+  border: 1rpx dashed #ddd;
+  float: left;
+
+}
+.img-item{
+  width: 140rpx;
+  height: 140rpx;
+  display: block;
+  float: left;
+  margin-left: 20rpx;
+}
+.img-item image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,10 @@
+<!--pages/login/login.wxml-->
+<view class='login-wrap'>
+  <view class='login-box'>
+    <i-panel>
+      <i-input value="{{ username }}" title="用户名" autofocus maxlength='12' placeholder="用户名" bind:change="setUsername" />
+      <i-input value="{{ password }}" title="密码" maxlength='12' placeholder="密码" bind:change="setPassword" />
+      <i-button bindtap='submitForm' type='primary'>登录</i-button>
+    </i-panel>
+  </view>
+</view>

@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/list/list",
+    "pages/item/item",
+    "pages/my/my",
+    "pages/end/end"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要获取你的定位功能"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#10C3AE",
+    "navigationBarTitleText": "维修助手",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#dbdbdb",
+    "backgroundColor": "#fff",
+    "selectedColor": "#10C3AE",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./assets/img/shouye1.png",
+        "selectedIconPath": "./assets/img/shouye.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "工单",
+        "iconPath": "./assets/img/liebiao1.png",
+        "selectedIconPath": "./assets/img/liebiao.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./assets/img/wode1.png",
+        "selectedIconPath": "./assets/img/wode.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "i-button": "./assets/dist/button/index",
+    "i-input": "./assets/dist/input/index",
+    "i-tabs": "./assets/dist/tabs/index",
+    "i-tab": "./assets/dist/tab/index",
+    "i-cell-group": "./assets/dist/cell-group/index",
+    "i-cell": "./assets/dist/cell/index",
+    "i-icon": "./assets/dist/icon/index",
+    "i-row": "./assets/dist/row/index",
+    "i-col": "./assets/dist/col/index",
+    "i-steps": "./assets/dist/steps/index",
+    "i-step": "./assets/dist/step/index",
+    "i-radio-group": "./assets/dist/radio-group/index",
+    "i-radio": "./assets/dist/radio/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

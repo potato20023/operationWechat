@@ -1,0 +1,29 @@
+<!--pages/login/login.wxml-->
+<!-- 登录 -->
+<view class='page login'>
+  <view class='loginInput'>
+    <!-- <i-panel title="基础用法">
+   
+  <i-input  title="账号" autofocus placeholder="名字" />
+     <i-input  title="密码" autofocus placeholder="名字" />
+     <i-button form-type='submit' type='info'>登录</i-button>
+    </i-panel> -->
+    <form bindsubmit='loginSubmit'>
+      <view class='user'>
+        <input name="username" placeholder='账号' type='text' adjust-position />
+      </view>
+      <view class='user'>
+        <input name="password" placeholder='密码' type='password' adjust-position />
+      </view>
+      <view class='btn-area'>
+        <button form-type='submit'>登录</button>
+        
+      </view>
+      
+    </form>
+    <view class='register'> 
+        若没有注册，请先
+        <navigator url='/pages/register/register' class='toReg'>注册</navigator>
+      </view>
+  </view>
+</view>
