@@ -1,7 +1,7 @@
 /* pages/my/my.wxss */
 .header{
   height: 260rpx;
-  background: linear-gradient(to bottom, #10C3AE, #44D29A);
+  background: linear-gradient(to bottom, #ff8610, #F7BD34);
   padding-top: 40rpx;
   display: flex;
   justify-content: center;

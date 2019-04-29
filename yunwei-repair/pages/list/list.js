@@ -69,6 +69,9 @@ Page({
       list:[]
    });
     this.getList()
+    if(this.data.list.length == 0){
+      console.log('没事有数据')
+    }
   },
 
   /**

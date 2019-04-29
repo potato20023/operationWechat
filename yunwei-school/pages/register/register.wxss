@@ -1,11 +1,23 @@
 /* pages/register/register.wxss */
-.login .loginInput .school{
-  width: 100%;
-  position: absolute;
-  background-color: white;
-  z-index: 10;
+.register{
+  padding-top: 60rpx;
 }
 .school{
-  max-height: 600rpx;
+  position: relative;
+  top: 5rpx;
+}
+.school .sch{
+  position: absolute;
+  top: 0;
+  width:100%;
+  max-height: 800rpx;
   overflow-y: auto;
+  background-color: #eee;
+  z-index: 1000;
+}
+.school .sch view{
+  width: 100%;
+  /* height:60rpx; */
+  border-bottom: 3rpx solid #fff;
+  padding:20rpx 60rpx;
 }

@@ -15,24 +15,42 @@ Page({
     console.log(e)
     var $this = this
     var tests = e.detail.value
-    if (!(/^[a-zA-Z0-9_]{3,10}$/.test(tests.username))) {
+    if (!(/^[0-9]{11}$/.test(tests.phone))) {
       // 验证账号（3-10位字母，数字）
-      wx.showToast({
-        title: '账号有误',
-        duration: 2000,
-        icon: 'none'
-      });
+      if(tests.phone == ''){
+        wx.showToast({
+          title: '请输入手机号',
+          duration: 2000,
+          icon: 'none'
+        })
+      }else {
+        wx.showToast({
+          title: '手机号错误',
+          duration: 2000,
+          icon: 'none'
+        });
+      }
+      
       return false;
-    } else if (!(/^[a-zA-Z0-9_]{3,10}$/.test(tests.password))) {
-      // 验证密码（3-10位字母，数字）
-      wx.showToast({
-        title: '密码有误',
-        duration: 2000,
-        icon: 'none'
-      });
+    } else if (!(/^[a-zA-Z0-9_]{6,10}$/.test(tests.password))) {
+      // 验证密码（6-10位字母，数字）
+      if(tests.password == '') {
+        wx.showToast({
+          title: '请输入密码',
+          duration: 2000,
+          icon:none
+        })
+      } else {
+        wx.showToast({
+          title: '密码错误',
+          duration: 2000,
+          icon: 'none'
+        });
+      }
+      
       return false;
     } else {
-      console.log(1111)
+      // console.log(1111)
       app.ajaxF({
         url:'/api/wx/login',
         method:'post',
@@ -55,8 +73,8 @@ Page({
           console.log(app.globalData.userInfo)
         },
         fail(res){
-          console.log(333)
-          console.log(res)
+          // console.log(333)
+          // console.log(res)
         },
         
       })

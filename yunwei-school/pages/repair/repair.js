@@ -105,7 +105,9 @@ Page({
   },
 
   // 点击图片预览大图
-  previewImage(index){
+  previewImage(e){
+    let index = e.currentTarget.dataset.index
+    console.log(index)
     let $this = this;
     let imgList = $this.data.imgUrls.map(item=>{
       return item.slice(0,-11)
@@ -113,6 +115,21 @@ Page({
     wx.previewImage({
       urls: imgList,            // 预览的图片路径数组
       current: imgList[index]   // 当前预览的图片
+    })
+  },
+  // 长按删除图片
+  deleteImg(e){
+    console.log(e)
+    let $this = this
+    let index = e.currentTarget.dataset.index
+    wx.showModal({
+      title: '提示',
+      content: '是否删除此照片',
+      success(res){
+        if(res.confirm){
+          $this.data.imgUrls.splice(index, 1)
+        }
+      }
     })
   },
 
@@ -217,7 +234,6 @@ Page({
           res.data.forEach(item => {
             arr.push(item.type)
           })
-          console.log(arr)
           $this.setData({
             equipmentList: res.data,
             arrList: arr

@@ -44,7 +44,7 @@
         <image src='/static/img/ic_repairs_details_addimage.png' bindtap='chooseImage'></image>      
       </view>
       <view class='img_list' wx:for='{{imgUrls}}' wx:key='{{index}}'>
-        <image src='{{item}}' bindtap='previewImage' data-index='{{index}}'></image>       
+        <image src='{{item}}' bindtap='previewImage' data-index='{{index}}' bindlongtap='deleteImg'></image>       
       </view>
       
     </view>

@@ -108,5 +108,12 @@
 
   <!-- <view wx:if="{{ifAllList}}" style='text-align:center'>---- 已加载全部数据 ----</view> -->
   <i-divider wx:if="{{ifAllList}}" content="加载已经完成,没有其他数据" color="#18c9ff" lineColor="#18c9ff"></i-divider>
+
+  <view wx:if="{{(current == 1 && list1.length == 0) || (current == 2 && list2.length == 0)}}" class='zhanwei'>
+    <image src='/static/img/zhanwei.png'></image>
+    <view>
+      <text>还没有订单哟...</text>
+    </view>    
+  </view>
 </view>
 

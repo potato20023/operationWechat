@@ -1,1 +1,12 @@
 /* pages/login/login.wxss */
+/* logo */
+.logo{
+  padding-top: 140rpx;
+  padding-bottom: 80rpx;
+  text-align: center;
+}
+.logo image{
+  width: 148rpx;
+  height: 148rpx;
+}
+

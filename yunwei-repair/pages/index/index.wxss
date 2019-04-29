@@ -3,7 +3,7 @@
 
 .header{
   height: 240rpx;
-  background: linear-gradient(to bottom, #10C3AE, #44D29A);
+  background: linear-gradient(to bottom, #ff8610, #F7BD34);
   padding-top: 40rpx;
 }
 /* .header .title{

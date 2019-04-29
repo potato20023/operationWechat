@@ -11,12 +11,13 @@ Page({
     password:''
   },
   // 提交表单数据
-  submitForm(){
+  submitForm(e){
+    // console.log(e)
     let $this = this;
     app.ajax({
       url:'/api/wx/loging',
       method:'post',
-      data:$this.data,
+      data:e.detail.value,
       callback(res){
         console.log(res)
         wx.setStorage({

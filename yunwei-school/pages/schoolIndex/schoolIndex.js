@@ -13,32 +13,40 @@ Page({
 
   // 报修事件
   toRepair: function () {
-    wx.showActionSheet({
-      itemList: ['扫码报修', '设备报修'],
-      success(res) {
-        console.log(res.tapIndex)
-        if(res.tapIndex === 0) {
-          wx:wx.showModal({
-            title:'提示',
-            content: '扫码报修功能暂未开启',
-            success(res){
-              console.log(res)
-            }
-          })
-        } else if(res.tapIndex === 1) {
-          wx:wx.navigateTo({
-            url: '/pages/repair/repair',
-            success: function(res) {
-              console.log(res)
-            },
-            fail: function(res) {},
-            complete: function(res) {},
-          })
-        }
+    // wx.showActionSheet({
+    //   itemList: ['扫码报修', '设备报修'],
+    //   success(res) {
+    //     console.log(res.tapIndex)
+    //     if(res.tapIndex === 0) {
+    //       wx:wx.showModal({
+    //         title:'提示',
+    //         content: '扫码报修功能暂未开启',
+    //         success(res){
+    //           console.log(res)
+    //         }
+    //       })
+    //     } else if(res.tapIndex === 1) {
+    //       wx:wx.navigateTo({
+    //         url: '/pages/repair/repair',
+    //         success: function(res) {
+    //           console.log(res)
+    //         },
+    //         fail: function(res) {},
+    //         complete: function(res) {},
+    //       })
+    //     }
+    //   },
+    //   fail(res) {
+    //     console.log(res.errMsg)
+    //   }
+    // })
+    wx: wx.navigateTo({
+      url: '/pages/repair/repair',
+      success: function (res) {
+        console.log(res)
       },
-      fail(res) {
-        console.log(res.errMsg)
-      }
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   // 报修进度

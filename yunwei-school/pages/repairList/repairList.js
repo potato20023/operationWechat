@@ -16,6 +16,7 @@ Page({
     toggle: true,
     offset:1,        // 页数
     ifAllList:false,   // 是否已经加载全部数据
+    ifReachBottom:false,   // 是否是上拉动作
     clientXstart:0,     // 开始滑动时的坐标(X)
     clientXend:0        // 结束滑动时的坐标(X)
   },
@@ -35,7 +36,7 @@ Page({
         offset: $this.data.offset
       },
       success(res) {
-        console.log(res)
+        // console.log(res)
         let list = []
         if (res.data.rows.length > 0){
           list = res.data.rows;
@@ -63,8 +64,7 @@ Page({
               })
             }
           }
-          
-        }else{
+        } else if ($this.data.ifReachBottom){
           $this.setData({
             ifAllList:true
           })
@@ -82,7 +82,8 @@ Page({
     $this.setData({
       current: detail.key,
       offset:1,
-      ifAllList:false
+      ifAllList:false,
+      ifReachBottom:false
     })
     this.getList(detail.key)
   },
@@ -237,7 +238,8 @@ Page({
     let $this = this
     if(!$this.data.ifAllList){
       $this.setData({
-        offset: $this.data.offset + 1
+        offset: $this.data.offset + 1,
+        ifReachBottom:true
       })
       $this.getList($this.data.current)
       console.log(111)

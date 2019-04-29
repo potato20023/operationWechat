@@ -124,18 +124,38 @@ Page({
   },
   // 点击预览大图
   previewImg(e){
-    var index = e.currentTarget.dataset.index;
-    var imgArr = this.data.picture.map(item=>{
-        return item.slice(0,-11)
+    console.log(e)
+    let index = e.currentTarget.dataset.index;
+    let ifOver = e.currentTarget.dataset.ifover;
+    let overImgArr = this.data.b.filelist.map(item=>{
+      return item.slice(0,-11)
+    }) 
+    let imgArr = this.data.picture.map(item=>{
+      return item.slice(0,-11)
     });
     console.log(imgArr)
-    wx.previewImage({
-      current: imgArr[index],     //当前图片地址
-      urls: imgArr,               //所有要预览的图片的地址集合 数组形式
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    console.log(overImgArr)
+    console.log(ifOver)
+    if(ifOver == "1"){
+      // console.log('完成维修备注')
+      wx.previewImage({
+        current: overImgArr[index],     //当前图片地址
+        urls: overImgArr,               //所有要预览的图片的地址集合 数组形式
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{
+      // console.log('没完成维修备注')
+      wx.previewImage({
+        current: imgArr[index],     //当前图片地址
+        urls: imgArr,               //所有要预览的图片的地址集合 数组形式
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
   },
  
   /**

@@ -1,13 +1,7 @@
 <!--pages/login/login.wxml-->
 <!-- 登录 -->
-<view class='page login'>
+<!-- <view class='page login'>
   <view class='loginInput'>
-    <!-- <i-panel title="基础用法">
-   
-  <i-input  title="账号" autofocus placeholder="名字" />
-     <i-input  title="密码" autofocus placeholder="名字" />
-     <i-button form-type='submit' type='info'>登录</i-button>
-    </i-panel> -->
     <form bindsubmit='loginSubmit'>
       <view class='user'>
         <input name="username" placeholder='账号' type='text' adjust-position />
@@ -25,5 +19,33 @@
         若没有注册，请先
         <navigator url='/pages/register/register' class='toReg'>注册</navigator>
       </view>
+  </view>
+</view> -->
+
+<view class='container'>
+  <view class='logo'>
+    <image src='/static/img/logo.png'></image>
+  </view>
+  <view class='form'>
+    <form bindsubmit='loginSubmit'>
+      <view class='user'>
+        <image src='/static/img/login_u.png'></image>
+        <input name="phone" placeholder='请输入电话号码' type='number'/>
+      </view>
+      <view class='user'>
+        <image src='/static/img/login_p.png'></image>
+        <input name="password" placeholder='请输入密码' type='password'/>
+      </view>
+      <view class='register'>
+        <navigator url='/pages/register/register' class='toReg'>注册</navigator>
+      </view>
+      <view class='submit'>
+        <button form-type='submit'></button>
+        <image src='/static/img/login_btn.png' form-type='submit'></image>
+      </view>
+    </form>
+  </view>
+  <view class='bg'>
+    <image src='/static/img/login_bg.png'></image>
   </view>
 </view>

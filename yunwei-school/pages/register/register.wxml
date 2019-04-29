@@ -1,35 +1,48 @@
 <!--pages/register/register.wxml-->
-<view class='login'>
-  <view class='loginInput'>
+<view class='register'>
+  <view class='form'>
     <form bindsubmit='registerSubmit'>
-      <view class='search user'>
+      <view class='user search'>
+        <text>学校：</text>
         <input name="schoolId" placeholder='学校' type='text' bindinput='searchSchool' value='{{school}}' adjust-position />
+        <!-- <picker bindchange='chooseSchool' value='{{}}' range='{{schoolList}}'>
+          <image src='/static/img/search.png'></image>
+        </picker> -->
+        
       </view>
       <view class='school'>
-        <block wx:for="{{schoolList}}" wx:key="{{index}}">
-          <view data-id='{{item.xxJbxxId}}' data-content='{{item.xxmc}}' bindtap='chooseSchool'>{{item.xxmc}}</view>
-        </block>
+        <view class='sch'>
+          <block wx:for="{{schoolList}}" wx:key="{{index}}">
+            <view data-id='{{item.xxJbxxId}}' data-content='{{item.xxmc}}' bindtap='chooseSchool'>{{item.xxmc}}</view>
+          </block>
+        </view>         
       </view>
       <view class='user'>
+        <text>姓名：</text>
         <input name="name" placeholder='姓名(2-4位汉字)' type='text'  adjust-position />
       </view>
       <view class='user'>
+        <text>电话：</text>
         <input name="phone" placeholder='电话' type='number' adjust-position/>
       </view>
+      <!-- <view class='user'>
+        <input name="username" placeholder='账号(6-10位字母数字)' type='text' adjust-position />
+      </view> -->
       <view class='user'>
-        <input name="username" placeholder='账号(3-10位字母数字)' type='text' adjust-position />
+        <text>密码：</text>
+        <input name="password" placeholder='密码(6-10位字母数字)' type='password'  adjust-position />
       </view>
       <view class='user'>
-        <input name="password" placeholder='密码(3-10位字母数字)' type='password'  adjust-position />
-      </view>
-      <view class='user'>
+        <text>确认密码：</text>
         <input name="password1" placeholder='确认密码' type='password'  adjust-position />
       </view>
-      <view class='btn-area'>
-        <button form-type='submit'>注册</button>
-        <i-toast id="toast" />
-        <i-message id="message" />
+      <view class='submit'>
+        <button form-type='submit'></button>
+        <image src='/static/img/login_btn.png' form-type='submit'></image>
       </view>
     </form>
+  </view>
+  <view class='bg'>
+    <image src='/static/img/login_bg.png'></image>
   </view>
 </view>

@@ -1,16 +1,7 @@
 // pages/index/index.js
 const app = getApp()
 const utils = require('../../utils/util.js')
-// 获取地理位置
-const getLocation = function ($this) {
-  // 获取地理位置
-  wx.getLocation({
-    type: 'wgs84',
-    success: function (res) {
-      // console.log(res)
-    },
-  })
-}
+
 Page({
 
   /**
@@ -38,6 +29,7 @@ Page({
       workId:userInfo.jobNumber,
       headUrl: app.globalData.appPath + '/public/user/morentoux.png'
     })
+    this.getOrderList();
   },
   // 获取展示工单
   getOrderList(){
@@ -64,6 +56,7 @@ Page({
           list:$this.data.list.concat(data),
           count:res.data.count
         })
+        console.log($this.data.list)
       }
     })
   },
@@ -81,17 +74,19 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getOrderList();
-    const $this = this;
-    wx.getSetting({
-      success:function(res){
-        if (res.authSetting['scope.userLocation'] == undefined && res.authSetting['scope.userLocation'] != true){
-          getLocation($this)
-        }else{
-          getLocation($this)
-        }
-      }
-    })
+    // this.getOrderList();
+    // const $this = this;
+    // wx.getSetting({
+    //   success:function(res){
+    //     if (res.authSetting['scope.userLocation'] == undefined && res.authSetting['scope.userLocation'] != true){
+    //       getLocation($this)
+    //     }else{
+    //       getLocation($this)
+    //     }
+    //   }
+    // })
+    let $this = this
+    // if($this.data.)
   },
 
   /**

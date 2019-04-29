@@ -16,10 +16,18 @@ Page({
 
   // 退出
   signOut(){
-    app.globalData.userInfo = null;
-    wx.clearStorage()
-    wx.reLaunch({
-      url: '/pages/login/login'
+    wx.showModal({
+      title: '提示',
+      content: '是否确认退出登录',
+      success(res){
+        if(res.confirm){
+          app.globalData.userInfo = null;
+          wx.clearStorage()
+          wx.reLaunch({
+            url: '/pages/login/login'
+          })
+        }
+      }
     })
   },
 

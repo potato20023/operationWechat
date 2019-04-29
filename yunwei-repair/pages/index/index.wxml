@@ -10,12 +10,12 @@
     </view>
   </view>
   <!-- 工单列表 -->
-  <view class='list'>
+  <view wx:if="{{list.length}}" class='list'>
     <view class='list-item' wx:for="{{list}}"  wx:key="index">
       <view class='list-id'>工单号: {{item.id}}</view>
       <view class='box'  id='{{item.id}}' data-status="{{item.status}}"  bindtap='linkToContent'>
           <image wx:if="{{item.awatar}}" src='{{item.awatar}}'></image>
-          <image wx:else src='../../assets/img/wode.png'></image>
+          <image wx:else src='../../assets/img/shebei.png'></image>
         <view class='content'>
           <text class='type'>{{item.type}}</text>
           <view class='time'>
@@ -27,5 +27,11 @@
           <text class='iconfont icon-dingwei'>  {{item.xxmc}}</text>
         </view>
     </view>
+  </view>
+  <view wx:else class='zhanwei'>
+    <image src='/assets/img/zhanwei.png'></image>
+    <view>
+      <text>还没有订单哟...</text>
+    </view>    
   </view>
 </view>

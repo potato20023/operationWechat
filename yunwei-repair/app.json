@@ -14,14 +14,14 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#10C3AE",
+    "navigationBarBackgroundColor": "#ff8610",
     "navigationBarTitleText": "维修助手",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#dbdbdb",
     "backgroundColor": "#fff",
-    "selectedColor": "#10C3AE",
+    "selectedColor": "#ff8610",
     "list": [
       {
         "pagePath": "pages/index/index",

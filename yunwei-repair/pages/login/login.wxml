@@ -1,10 +1,34 @@
 <!--pages/login/login.wxml-->
-<view class='login-wrap'>
+<!-- <view class='login-wrap'>
   <view class='login-box'>
     <i-panel>
       <i-input value="{{ username }}" title="用户名" autofocus maxlength='12' placeholder="用户名" bind:change="setUsername" />
       <i-input value="{{ password }}" title="密码" maxlength='12' placeholder="密码" bind:change="setPassword" />
       <i-button bindtap='submitForm' type='primary'>登录</i-button>
     </i-panel>
+  </view>
+</view> -->
+<view class='container'>
+  <view class='logo'>
+    <image src='/assets/img/logo.png'></image>
+  </view>
+  <view class='form'>
+    <form bindsubmit='submitForm'>
+      <view class='user'>
+        <image src='/assets/img/login_u.png'></image>
+        <input name="username" placeholder='请输入用户名' type='number'/>
+      </view>
+      <view class='user'>
+        <image src='/assets/img/login_p.png'></image>
+        <input name="password" placeholder='请输入密码' type='password'/>
+      </view>
+      <view class='submit'>
+        <button form-type='submit'></button>
+        <image src='/assets/img/login_btn.png' form-type='submit'></image>
+      </view>
+    </form>
+  </view>
+  <view class='bg'>
+    <image src='/assets/img/login_bg.png'></image>
   </view>
 </view>
