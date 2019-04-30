@@ -1,9 +1,5 @@
 // pages/register/register.js
-
-
 const app = getApp()
-// const { $Toast, $Message } = require('../../static/dist/base/index.js');
-const { $Message } = require('../../static/dist/base/index.js');
 function getFun(fn, time){
   return function (con) {
     let $this = this;
@@ -148,11 +144,11 @@ Page({
         method: 'post',
         data: tests,
         success: function (res) {
-          console.log(res)
-          $Message({
-            content:'注册成功',
-            type:'success',
-            duration:2
+          console.log('res44444')
+          wx.showToast({
+            title: '注册成功',
+            duration:2000,
+            icon:'none'
           })
           setTimeout($this.toLogin,2000)
         }

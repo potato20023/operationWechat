@@ -70,7 +70,7 @@ Page({
    });
     this.getList()
     if(this.data.list.length == 0){
-      console.log('没事有数据')
+      console.log('没有数据')
     }
   },
 
@@ -112,7 +112,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getList(this.data.status)
+    wx.stopPullDownRefresh();
   },
 
   /**

@@ -40,7 +40,7 @@ page{
 .container {
   height: 100%;
   box-sizing: border-box;
-  font-size: 28rpx;
+  font-size: 30rpx;
 } 
 view{
   box-sizing: border-box;

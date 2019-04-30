@@ -85,11 +85,11 @@ App({
   },
   // 微信请求的封装
   ajax: function ({ url, method, data, loading, callback }) {
-    if (loading || loading == undefined) {
-      wx.showLoading({
-        title: '加载中...',
-      });
-    }
+    // if (loading || loading == undefined) {
+    //   wx.showLoading({
+    //     title: '加载中...',
+    //   });
+    // }
     wx.request({
       url: this.globalData.appPath + url, //仅为示例，并非真实的接口地址
       method: method,
@@ -125,9 +125,9 @@ App({
         })
       },
       complete: function (res) {
-        if (loading || loading == undefined) {
-          wx.hideLoading();
-        }
+        // if (loading || loading == undefined) {
+        //   wx.hideLoading();
+        // }
       }
     })
   },

@@ -1,5 +1,6 @@
 <!--pages/list/list.wxml-->
-<i-tabs  current="{{ status }}" color="#ff8610" bindchange="tabChange">
+<view class='tabs'>
+  <i-tabs  current="{{ status }}" color="#ff8610" bindchange="tabChange">
     <i-tab key="1" title="待接单">
     </i-tab>
     <i-tab key="2" title="维修中">
@@ -8,8 +9,10 @@
     <i-tab key="3" title="已完成">
       tab3
     </i-tab>
-</i-tabs>
-  <view class='list'>
+  </i-tabs>
+</view>
+
+  <view wx:if="{{list.length}}" class='list'>
     <block  wx:for="{{list}}"  wx:key="index">
       <view class='list-item'  id='{{item.id}}' data-status="{{item.status}}"  bindtap='linkToContent'>
         <view class='list-id'>工单号: {{item.id}}</view>
@@ -29,11 +32,12 @@
       </view>
     </block>
   </view>
-  <view wx:if="{{endPage || !list.length}}" class='zhanwei'>
+  <view wx:else class='zhanwei'>
     <image src='/assets/img/zhanwei.png'></image>
     <view>
       <text>还没有订单哟...</text>
     </view>    
   </view>
+  <i-divider wx:if="{{endPage && list.length > 0}}" content="加载已经完成,没有其他数据" color="#ff8610" lineColor="#ff8610"></i-divider>
 
 

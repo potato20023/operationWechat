@@ -12,13 +12,14 @@ Page({
     tagList:{},     // 故障标签列表
     equipmentList:[],  // 设备列表
     arrList:[],
-    index:'',
+    index:'',   // 已选择的设备类型索引
     equipmentValue:'',  // 设备名
     equipmentId:'',      // 设备id
     tagId:'',    // 故障标签id
     describeValue:'',   // 故障描述
-    imgUrls:[],
-    count:4,     // 可以选择上传图片的数量
+    imgUrl:[],   // 选择的图片
+    imgUrls:[],  // 上传的图片
+    count:3,     // 可以选择上传图片的数量
     user:{}
   },
 
@@ -44,16 +45,19 @@ Page({
   chooseImage: function () {
     let $this = this
     $this.setData({
-      count:4-$this.data.imgUrls.length
+      count: 3 - $this.data.imgUrl.length
     })
-    if($this.data.imgUrls.length<4){
+    if($this.data.imgUrl.length < 3){
       wx.chooseImage({
         count: $this.data.count,
         sizeType: ['compressed'],
         sourceType: ['album', 'camera'],
         success: function (res) {
-          // console.log(res)
+          console.log(res)
           // 压缩图片
+          $this.setData({
+            imgUrl: $this.data.imgUrl.concat(res.tempFilePaths)
+          })
           res.tempFilePaths.forEach(item => {
             wx.compressImage({
               src: item,
@@ -65,7 +69,8 @@ Page({
                   name: 'file',
                   success: function (res) {
                     $this.setData({
-                      imgUrls: $this.data.imgUrls.concat(JSON.parse(res.data).data.link)
+                      imgUrls: $this.data.imgUrls.concat(JSON.parse(res.data).data.link),
+                      hidden:'false'
                     })
                     console.log($this.data.imgUrls)
                   },
@@ -98,7 +103,7 @@ Page({
       })
     } else{
       $Toast({
-        content:'最多只能上传4张图片',
+        content:'最多只能上传3张图片',
         type:'warning'
       })
     }
@@ -117,7 +122,7 @@ Page({
       current: imgList[index]   // 当前预览的图片
     })
   },
-  // 长按删除图片
+  // 删除图片
   deleteImg(e){
     console.log(e)
     let $this = this
@@ -127,7 +132,13 @@ Page({
       content: '是否删除此照片',
       success(res){
         if(res.confirm){
-          $this.data.imgUrls.splice(index, 1)
+          $this.data.imgUrl.splice(index,1);
+          $this.data.imgUrls.splice(index,1)
+          console.log($this.data.imgUrl)
+          $this.setData({
+            imgUrl: $this.data.imgUrl,
+            imgUrls: $this.data.imgUrls
+          })
         }
       }
     })
@@ -145,20 +156,28 @@ Page({
     tests.faultDesc = e.detail.value.faultDesc
     console.log(tests)
     if (!tests.equipmentId){
-      $Toast({
-        content:'请选择设备类型',
-        type:'warning'
+      wx.showToast({
+        title: '请选择设备类型',
+        duration: 2000,
+        icon: 'none'
       })
-      console.log('请选择设备类型')
     } else if (!tests.faultDesc){
-      $Toast({
-        content:'请输入故障描述',
-        type:'warning'
+      wx.showToast({
+        title: '请输入故障描述',
+        duration: 2000,
+        icon: 'none'
       })
     } else if (!tests.tagId){
-      $Toast({
-        content:'请选择故障标签',
-        type:'warning'
+      wx.showToast({
+        title: '请选择故障标签',
+        duration: 2000,
+        icon: 'none'
+      })
+    } else if ($this.data.imgUrl.length > 0 && ($this.data.imgUrl.length != $this.data.imgUrls.length)){
+      wx.showToast({
+        title: '图片上传中...',
+        duration:2000,
+        icon:'none'
       })
     }else if ($this.data.id) {
       app.ajaxF({
@@ -202,6 +221,25 @@ Page({
       user: app.globalData.userInfo
     })
 
+    // 设备类型
+    app.ajaxF({
+      url: '/api/wx/typeEquipment',
+      method: 'get',
+      success: function (res) {
+        if (res.data) {
+          let arr = []
+          res.data.forEach(item => {
+            arr.push(item.type)
+          })
+          $this.setData({
+            equipmentList: res.data,
+            arrList: arr
+          })
+        }
+
+      }
+    })
+
     // console.log($this.data.user)
     if (id) {
       app.ajaxF({
@@ -221,27 +259,19 @@ Page({
             imgUrls: res.data.picture,
             info: res.data
           })
+          $this.data.arrList.forEach((item,index)=>{
+            if (item == $this.data.equipmentValue) {
+              $this.setData({
+                index: index
+              })
+            }
+          })
+          console.log($this.data.index)
         }
       })
     }
 
-    app.ajaxF({
-      url: '/api/wx/typeEquipment',
-      method: 'get',
-      success: function (res) {
-        if(res.data){
-          let arr = []
-          res.data.forEach(item => {
-            arr.push(item.type)
-          })
-          $this.setData({
-            equipmentList: res.data,
-            arrList: arr
-          })
-        }
-        
-      }
-    })
+    
 
     // 故障标签
     bindTag:{

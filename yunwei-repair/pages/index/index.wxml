@@ -34,4 +34,5 @@
       <text>还没有订单哟...</text>
     </view>    
   </view>
+   <i-divider wx:if="{{endPage && list.length > 0}}" content="加载已经完成,没有其他数据" color="#ff8610" lineColor="#ff8610"></i-divider>
 </view>

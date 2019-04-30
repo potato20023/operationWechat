@@ -56,7 +56,8 @@
     "i-steps": "./assets/dist/steps/index",
     "i-step": "./assets/dist/step/index",
     "i-radio-group": "./assets/dist/radio-group/index",
-    "i-radio": "./assets/dist/radio/index"
+    "i-radio": "./assets/dist/radio/index",
+    "i-divider": "./assets/dist/divider/index"
   },
   "sitemapLocation": "sitemap.json"
 }

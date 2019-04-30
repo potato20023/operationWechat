@@ -1,7 +1,8 @@
 <view class='main'>
   <view class='header'>
     <view class='left'>
-      <image src='{{awatar}}'></image>
+      <image wx:if="{{awatar}}" src='{{awatar}}'></image>
+      <image wx:else src='/assets/img/zhanwei.png'></image>
     </view>
     <view class='right'>
       <view>

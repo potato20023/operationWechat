@@ -21,3 +21,11 @@
   border-bottom: 3rpx solid #fff;
   padding:20rpx 60rpx;
 }
+
+.lable{
+  width: 150rpx;
+  display: inline-block
+}
+.lable1{
+  width:250rpx;
+}

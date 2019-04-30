@@ -127,9 +127,12 @@ Page({
     console.log(e)
     let index = e.currentTarget.dataset.index;
     let ifOver = e.currentTarget.dataset.ifover;
-    let overImgArr = this.data.b.filelist.map(item=>{
-      return item.slice(0,-11)
-    }) 
+    if(this.data.b){
+      var overImgArr = this.data.b.filelist.map(item => {
+        return item.slice(0, -11)
+      })
+    }
+     
     let imgArr = this.data.picture.map(item=>{
       return item.slice(0,-11)
     });

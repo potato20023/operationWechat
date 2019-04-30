@@ -32,11 +32,11 @@ App({
     isLoading
   }) {
     const $this = this;
-    if (isLoading || isLoading == undefined) {
-      wx.showLoading({
-        title: '加载中...',
-      })
-    }
+    // if (isLoading || isLoading == undefined) {
+    //   wx.showLoading({
+    //     title: '加载中...',
+    //   })
+    // }
     wx.request({
       header: {
         'content-type': 'application/json', // 默认值
@@ -59,8 +59,6 @@ App({
               })
             },
           })
-         
-
         } else {
           if (res.data.message) {
             wx.showToast({
@@ -85,9 +83,9 @@ App({
         })
       },
       complete: function(res) {
-        if (isLoading || isLoading == undefined) {
-           wx.hideLoading()
-        }
+        // if (isLoading || isLoading == undefined) {
+        //    wx.hideLoading()
+        // }
       }
     })
   },
@@ -111,8 +109,8 @@ App({
 
   globalData: {
     userInfo: {},
-    URL: "http://192.168.18.114:7001",
-    // URL: "http://192.168.17.190:7001",
+    // URL: "http://192.168.18.114:7001",
+    URL: "http://192.168.17.190:7001",
     token:'' 
   }
 })

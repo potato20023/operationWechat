@@ -82,32 +82,26 @@
 
 /* 故障标签 */
 .container .con .fault_label{
-  /* display: flex;
-  flex-wrap: wrap; */
   display: inline-block;
 }
 .container .con .fault_label .fault{
-  
-  /* background-color: #EBECF5; */
   border-radius: 5rpx;
-  /* color: #999; */
-  padding:10rpx;
+  padding:15rpx;
   margin-left: 0;
   margin: 10rpx;
-  font-size: 22rpx;
+  font-size: 28rpx;
 }
 
 
 /* 添加照片 */
-.container .img,.container .img img_list{
+.container .img,.container .img .img_list{
   display: flex;
   flex-wrap: wrap;
+  padding: 0rpx 6rpx 6rpx 6rpx;
 }
-.container .img .add,.container .img .img_list image{
+.container .img .add,.container .img .img_list .image{
   width: 160rpx;
   height: 160rpx;
-  margin: 6rpx 12rpx;
-  margin-left:0;
 }
 .container .img .add{
   background-color: #fff;
@@ -117,11 +111,36 @@
   width: 130rpx;
   height: 130rpx;  
 }
+  /* 删除 */
+.container .img .img_list{
+  position: relative;
+}
+.container .img .img_list .delete{
+  width: 50rpx;
+  height:50rpx;
+  position: absolute;
+  top: 0;
+  right:6rpx;
+  background-color: #ddd;
+  text-align: center;
+  border-radius: 0 0 0 80%;
+}
+/* 是否上传完毕 */
+/* .container .img .img_list .uploadOver{
+  position: absolute;
+  top: 0;
+  left: 6rpx;
+  width: 160rpx;
+  height: 160rpx;
+  background-color: #ddd;
+  opacity: 0.5;
+} */
+
 
 /* 报修按钮 */
 .container .btn{
-   width: 80%;
-   box-sizing: border-box;
+  width: 80%;
+  box-sizing: border-box;
   position: fixed;
   bottom: 30rpx;
   left: 10%;

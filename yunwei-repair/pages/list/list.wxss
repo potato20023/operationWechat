@@ -1,1 +1,11 @@
 /* pages/list/list.wxss */
+.tabs{
+  position:fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  z-index: 100;
+}
+.list{
+  padding-top: 120rpx;
+}
