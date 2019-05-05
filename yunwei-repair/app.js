@@ -135,5 +135,6 @@ App({
     userInfo: null,
     // appPath:'http://192.168.17.190:7001'
     appPath: 'http://192.168.18.114:7001'
+    // appPath: 'http://192.168.17.146:7001'
   }
 })

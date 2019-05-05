@@ -10,58 +10,61 @@ Page({
     user:{}
   },
   formSubmit(e){
-    
-    console.log(e.detail.value)
     if (!(/^[a-zA-Z0-9_]{6,10}$/.test(e.detail.value.oldPassword))) {
       // 验证密码（6-10位字母，数字）
       if (e.detail.value.oldPassword == '') {
-        $Toast({
-          content: '原密码不能为空',
-          type: 'warning'
+        wx.showToast({
+          title: '原密码不能为空',
+          duration:2000,
+          icon:'none'
         })
       } else {
-        $Toast({
-          content: '请输入6-10位的字母和数字作为密码',
-          type: 'warning'
+        wx.showToast({
+          title: '请输入6-10位的字母和数字作为密码',
+          duration: 2000,
+          icon: 'none'
         })
       }
     } else if (!(/^[a-zA-Z0-9_]{6,10}$/.test(e.detail.value.newPassword1))) {
       // 验证密码（6-10位字母，数字）
       if (e.detail.value.newPassword1 == '') {
-        $Toast({
-          content: '新密码不能为空',
-          type: 'warning'
+        wx.showToast({
+          title: '密码不能为空',
+          duration: 2000,
+          icon: 'none'
         })
       } else {
-        $Toast({
-          content: '请输入6-10位的字母和数字作为新密码',
-          type: 'warning'
+        wx.showToast({
+          title: '请输入6-10位的字母和数字作为新密码',
+          duration: 2000,
+          icon: 'none'
         })
       }
     } else if (e.detail.value.newPassword1 != e.detail.value.newPassword2){
-      $Toast({
-        content: '请输入一样的密码',
-        type: 'warning'
+      wx.showToast({
+        title: '请输入一样的密码',
+        duration: 2000,
+        icon: 'none'
       })
-    } else {
+    }  else {
       let $this = this;
       let data = $this.data.user
       data.password = e.detail.value.oldPassword
       data.newPassword = e.detail.value.newPassword1
-      console.log(data)
+      // console.log(data)
       app.ajaxF({
         url: '/api/wx/updateTeacher/' + data.id,
         method: 'post',
         data: data,
         success(res) {
-          // console.log(res)
-          $Toast({
-            content:'修改成功',
-            type:'success'
+          wx.showToast({
+            title: '修改成功',
+            duration: 2000,
+            icon: 'none'
           })
           setTimeout(()=>{
-            wx.redirectTo({
-              url: '/pages/personal/personal'
+            wx.navigateBack({
+              delta: 1
             })
           },500)         
         }

@@ -164,9 +164,9 @@ Page({
               $Message({
                 content: '删除成功',
                 type: 'success',
-                duration: 2
+                duration: 1
               })
-              setTimeout($this.toIndex, 2000)
+              setTimeout($this.toIndex, 1000)
             }
           })
         } else if (res.cancel) {

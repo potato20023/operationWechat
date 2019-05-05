@@ -25,7 +25,8 @@
   color: #252525;
   font-weight: bold;
   font-size: 40rpx;
-  line-height: 85rpx;
+  line-height: 140rpx;
+  /* line-height: 85rpx; */
 }
 .container .infos .info .userName{
   color: #8D8D8D;
@@ -39,9 +40,7 @@
   justify-content: left;
 }
 .container .modular .item .icon{
-  margin-right: 30rpx;
-  position: relative;
-  top: 25rpx;
+  padding: 34rpx 30rpx 38rpx 0;
 }
 .container .modular{
   width: 100%;
@@ -84,5 +83,5 @@
   top: 80rpx;
 }
 .container .modular .item .headIcon{
-  top: 68rpx;
+  padding: 74rpx 30rpx 78rpx 0;
 }

@@ -12,7 +12,7 @@ Page({
 
   // 登录
   loginSubmit: function (e) {
-    console.log(e)
+    // console.log(e)
     var $this = this
     var tests = e.detail.value
     if (!(/^[0-9]{11}$/.test(tests.phone))) {
@@ -34,11 +34,12 @@ Page({
       return false;
     } else if (!(/^[a-zA-Z0-9_]{6,10}$/.test(tests.password))) {
       // 验证密码（6-10位字母，数字）
+      console.log(111)
       if(tests.password == '') {
         wx.showToast({
           title: '请输入密码',
           duration: 2000,
-          icon:none
+          icon:'none'
         })
       } else {
         wx.showToast({
@@ -56,8 +57,6 @@ Page({
         method:'post',
         data:tests,
         success:function(res){
-          console.log(res)
-          console.log(2222)
           wx.redirectTo({
             url: '/pages/schoolIndex/schoolIndex'
           })
@@ -70,7 +69,7 @@ Page({
             data: res.data.token
           })
           app.globalData.userInfo = res.data.result
-          console.log(app.globalData.userInfo)
+          // console.log(app.globalData.userInfo)
         },
         fail(res){
           // console.log(333)

@@ -3,17 +3,34 @@
   <i-cell title="维修完成拍照">
     <i-icon size='24' color="#FEA54D" type="camera" slot="icon" />
   </i-cell>
-  <view class='upload'>
+  <!-- <view class='upload'>
     <view class='upload-icon' bindtap='uploadFile'>
       <i-icon type="add" size='28' />
     </view>
+
     <block wx:for="{{imgUrl}}" wx:key="{{index}}">
       <view class='img-item'>
-        <image  src="{{item}}"></image>
+        <image src='{{item}}' class='image' bindtap='previewImage' data-index='{{index}}'></image>
+        <view class='delete' bindtap='deleteImg' data-index="{{index}}">X</view>
       </view>
     </block>
-  
-  </view>
+  </view> -->
+
+  <!-- 添加照片 -->
+    <view class='img'>
+      <view class='upload-icon' bindtap='chooseImage'>
+        <i-icon type="add" size='28' />
+      </view>
+      <!-- <view class='add'>
+        <image src='/assets/img/add.png' bindtap='chooseImage'></image>
+      </view> -->
+      <view class='img_list' wx:for='{{imgUrl}}' wx:key='{{index}}'>
+        <image src='{{item}}' class='image' bindtap='previewImage' data-index='{{index}}'></image>  
+        <view class='delete' bindtap='deleteImg' data-index="{{index}}">X</view> 
+        <!-- <view class='uploadOver' hidden='{{hidden}}'></view> -->
+      </view>
+    </view>
+
   <i-cell title="现场备注" value="{{userName}}">
     <i-icon size='24' color="#0098FD" type="brush" slot="icon" />
   </i-cell>

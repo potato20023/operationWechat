@@ -14,20 +14,28 @@ Page({
 
   // 修改名字
   formSubmit(e){
-    console.log(e)
+    let $this = this
     if (!(/^[\u4E00-\u9FA5]{2,4}$/.test(e.detail.value.name))) {
       // 验证姓名（2-4位汉字） 
       if (e.detail.value.name == '') {
-        $Toast({
-          content: '姓名不能为空',
-          type: 'warning'
+        wx.showToast({
+          title: '姓名不能为空',
+          duration: 2000,
+          icon: 'none'
         })
       } else {
-        $Toast({
-          content: '请输入2-4位汉字',
-          type: 'warning'
+        wx.showToast({
+          title: '请输入2-4位汉字',
+          duration: 2000,
+          icon: 'none'
         })
       }
+    }else if(e.detail.value.name == $this.data.name){
+      wx.showToast({
+        title: '请先修改信息',
+        duration:2000,
+        icon:'none'
+      })
     }else{
       let data = this.data.user
       data.name = e.detail.value.name
@@ -37,20 +45,21 @@ Page({
         method:'post',
         data:data,
         success(res){
-          // console.log(res)
-          $Toast({
-            content: '修改成功',
-            type: 'success'
+          wx.showToast({
+            title: '修改成功',
+            duration: 2000,
+            icon: 'none'
           })
           setTimeout(() => {
-            wx.redirectTo({
-              url: '/pages/personal/personal'
+            wx.navigateBack({
+              delta: 1
             })
           },500)   
           wx.setStorage({
             key: 'user',
             data: data
           })
+          app.globalData.user = data
         }
       })
     }

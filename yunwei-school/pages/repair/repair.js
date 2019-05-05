@@ -59,10 +59,12 @@ Page({
             imgUrl: $this.data.imgUrl.concat(res.tempFilePaths)
           })
           res.tempFilePaths.forEach(item => {
+            console.log(item)
             wx.compressImage({
               src: item,
               quality: 80,
               success(res) {
+                console.log(res.tempFilePath)
                 wx.uploadFile({
                   url: app.globalData.URL + '/api/wx/upload',
                   filePath: res.tempFilePath,

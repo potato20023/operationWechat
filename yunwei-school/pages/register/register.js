@@ -21,8 +21,6 @@ function ajaxFun(data){
       keyword: data.value
     },
     success: function (res) {
-      
-      console.log(res)
       data.tar.setData({
         schoolList: res.data
       })
@@ -63,7 +61,6 @@ Page({
   },
 
   registerSubmit: function (e) {
-    console.log(e)
     let $this = this;
     let tests = e.detail.value
     // tests.schoolId = $this.data.schoolid;
@@ -71,7 +68,7 @@ Page({
     console.log(tests.schoolId)
     console.log($this.data.schoolid)
     if ($this.data.schoolid == '') {
-      console.log(tests.schoolId)
+      // console.log(tests.schoolId)
       if (tests.schoolId == ''){
         wx.showToast({
           title: '请选择学校',
@@ -144,7 +141,6 @@ Page({
         method: 'post',
         data: tests,
         success: function (res) {
-          console.log('res44444')
           wx.showToast({
             title: '注册成功',
             duration:2000,
@@ -154,8 +150,6 @@ Page({
         }
       })
     }
-    
-    console.log(tests)
   },
 
   /**

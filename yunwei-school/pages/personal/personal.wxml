@@ -5,8 +5,8 @@
     <image wx:if="{{user.avatar}}" src="{{user.avatar}}" bindtap='previewImage'></image>
     <image wx:else src='{{headUrl}}'></image>
     <view class='info'>
-      <view class='name'>{{user.name}}</view>
-      <view class='userName'>账号：{{user.username}}</view>
+      <view class='name'>姓名：{{user.name}}</view>
+      <!-- <view class='userName'>账号：{{user.username}}</view> -->
     </view>
  </view>
 
@@ -52,7 +52,7 @@
         </view>      
       </navigator>
     </view>    
-    <view class='item'>
+    <!-- <view class='item'>
       <i-icon type="mail" size='24' color='#E8422A' class='icon' />
       <view class='mode'>
         <text class='name'>账号</text>
@@ -60,7 +60,7 @@
           <view class='cont'>{{user.username}}</view>
         </view>      
       </view>
-    </view>    
+    </view>     -->
     <view class='item'>
       <i-icon type="lock" size='24' color='#1E7DC5' class='icon'  />
       <navigator url='/pages/updatePassword/updatePassword' class='mode'>
@@ -72,6 +72,6 @@
       </navigator>
     </view>    
   </view>
-  <i-button bind:click="handleClick" type="warning" long="true" bind:click='signOut'>退出当前账号</i-button>
+  <i-button bind:click="handleClick" type="error" long="true" bind:click='signOut'>退出当前账号</i-button>
   <i-toast id="toast" />
 </view>

@@ -39,6 +39,8 @@ Page({
       sizeType:['original','compressed'],
       sourceType:['album','camera'],
       success: function(res1) {
+        console.log(res1)
+        console.log(res1.tempFilePaths[0])
         if(res1.tempFilePaths){
             wx.compressImage({
               src: res1.tempFilePaths[0],
@@ -49,7 +51,7 @@ Page({
                   wx.uploadFile({
                     url: app.globalData.URL + '/api/wx/uploadHeader',
                     filePath: res2.tempFilePath,
-                    name: 'head',
+                    name: 'file',
                     success(res3){
                       console.log(JSON.parse(res3.data).data.url)
                       let url3 = JSON.parse(res3.data).data.url
@@ -60,10 +62,11 @@ Page({
                         method: 'post',
                         data: data,
                         success(res) {
-                          // console.log(res)
-                          $Toast({
-                            content: '修改成功',
-                            type: 'success'
+                          console.log('更新成功')
+                          wx.showToast({
+                            title: '修改成功',
+                            duration:2000,
+                            icon:'none'
                           })
                           setTimeout(() => {
                             wx.redirectTo({
@@ -74,11 +77,19 @@ Page({
                             key: 'user',
                             data: data
                           })
+                          app.globalData.userInfo = data
+                          $this.data.user = data
                         }
                       })
                     }
                   })
                 }
+              },
+              fail(res){
+                $Toast({
+                  content:'压缩失败',
+                  type:'warning'
+                })
               }
             })
         }
@@ -108,7 +119,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let $this = this;
+    $this.setData({
+      user: app.globalData.userInfo,
+      headUrl: app.globalData.URL + '/public/user/school3.png'
+    })
   },
 
   /**

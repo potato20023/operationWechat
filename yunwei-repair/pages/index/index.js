@@ -29,7 +29,7 @@ Page({
       workId:userInfo.jobNumber,
       headUrl: app.globalData.appPath + '/public/user/morentoux.png'
     })
-    this.getOrderList();
+    //this.getOrderList();
   },
   // 获取展示工单
   getOrderList(){
@@ -56,7 +56,7 @@ Page({
           list:$this.data.list.concat(data),
           count:res.data.count
         })
-        console.log($this.data.list)
+        // console.log($this.data.list)
       }
     })
   },
@@ -74,19 +74,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // this.getOrderList();
-    // const $this = this;
-    // wx.getSetting({
-    //   success:function(res){
-    //     if (res.authSetting['scope.userLocation'] == undefined && res.authSetting['scope.userLocation'] != true){
-    //       getLocation($this)
-    //     }else{
-    //       getLocation($this)
-    //     }
-    //   }
-    // })
-    let $this = this
-    // if($this.data.)
+    
   },
 
   /**

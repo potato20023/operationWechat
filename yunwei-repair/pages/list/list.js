@@ -37,17 +37,25 @@ Page({
       callback:function(res){
         let data = res.data.rows?res.data.rows:[];
         console.log(data)
-        if(data.length==0){
-         $this.setData({
-           endPage:true
-         })
-        }
+        
         data.forEach(item=>{
           item.createTime = utils.formatTime(item.createTime)
         })
-        $this.setData({
-          list: $this.data.list.concat(data)
-        })
+        if($this.data.offset > 1){
+          $this.setData({
+            list: $this.data.list.concat(data)
+          })
+          if (data.length == 0) {
+            $this.setData({
+              endPage: true
+            })
+          }
+        }else{
+          $this.setData({
+            list: data
+          })
+        }
+        
       }
     })
   },

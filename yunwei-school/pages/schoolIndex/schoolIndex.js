@@ -40,7 +40,7 @@ Page({
     //     console.log(res.errMsg)
     //   }
     // })
-    wx: wx.navigateTo({
+    wx.navigateTo({
       url: '/pages/repair/repair',
       success: function (res) {
         console.log(res)
@@ -82,13 +82,6 @@ Page({
     $this.setData({
       user:app.globalData.userInfo,
       headUrl: app.globalData.URL + '/public/user/school3.png'
-    })
-    app.ajaxF({
-      url:'/api/wx/test',
-      method:'get',
-      success:function(res){
-        console.log(res)
-      }
     })
     app.ajaxF({
       url:'/api/wx/teacherOrder',
