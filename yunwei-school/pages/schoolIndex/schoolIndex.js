@@ -13,33 +13,6 @@ Page({
 
   // 报修事件
   toRepair: function () {
-    // wx.showActionSheet({
-    //   itemList: ['扫码报修', '设备报修'],
-    //   success(res) {
-    //     console.log(res.tapIndex)
-    //     if(res.tapIndex === 0) {
-    //       wx:wx.showModal({
-    //         title:'提示',
-    //         content: '扫码报修功能暂未开启',
-    //         success(res){
-    //           console.log(res)
-    //         }
-    //       })
-    //     } else if(res.tapIndex === 1) {
-    //       wx:wx.navigateTo({
-    //         url: '/pages/repair/repair',
-    //         success: function(res) {
-    //           console.log(res)
-    //         },
-    //         fail: function(res) {},
-    //         complete: function(res) {},
-    //       })
-    //     }
-    //   },
-    //   fail(res) {
-    //     console.log(res.errMsg)
-    //   }
-    // })
     wx.navigateTo({
       url: '/pages/repair/repair',
       success: function (res) {
@@ -74,6 +47,23 @@ Page({
     })
   },
 
+  // 首页报修进度显示
+  indexNum(){
+    let $this = this
+    app.ajaxF({
+      url: '/api/wx/teacherOrder',
+      method: 'get',
+      data: {
+        userId: $this.data.user.id
+      },
+      success(res) {
+        console.log(res)
+        $this.setData({
+          num: res.data
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -83,19 +73,7 @@ Page({
       user:app.globalData.userInfo,
       headUrl: app.globalData.URL + '/public/user/school3.png'
     })
-    app.ajaxF({
-      url:'/api/wx/teacherOrder',
-      method:'get',
-      data:{
-        userId:$this.data.user.id
-      },
-      success(res){
-        console.log(res)
-        $this.setData({
-          num:res.data
-        })
-      }
-    })
+    $this.indexNum()
   },
 
   /**
@@ -110,16 +88,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    ifLogin:{
-      wx.getStorage({
-        key: 'username',
-        success: function (res) {
-          console.log(res.data)
-
-        },
-
-      })
-    }
+    let $this = this
+    $this.setData({
+      user: app.globalData.userInfo,
+      headUrl: app.globalData.URL + '/public/user/school3.png'
+    })
+    $this.indexNum()
   },
 
   /**

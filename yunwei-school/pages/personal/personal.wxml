@@ -44,13 +44,13 @@
     </view>  
     <view class='item'>
       <i-icon type="label" size='24' color='#10B976' class='icon' />
-      <navigator url='/pages/updatePhone/updatePhone' class='mode'>
+      <view class='mode'>
         <text class='name'>电话</text>
         <view class='right'>
           <view class='cont'>{{user.phone}}</view>
-          <view class='more'></view>
+          <!-- <view class='more'></view> -->
         </view>      
-      </navigator>
+      </view>
     </view>    
     <!-- <view class='item'>
       <i-icon type="mail" size='24' color='#E8422A' class='icon' />

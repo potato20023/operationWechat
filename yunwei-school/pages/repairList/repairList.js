@@ -141,12 +141,6 @@ Page({
     })
   },
 
-  toIndex(){
-    wx.reLaunch({
-      url: '/pages/schoolIndex/schoolIndex'
-    })
-  },
-
   //删除
   Delete(e){
     let $this = this
@@ -166,7 +160,11 @@ Page({
                 type: 'success',
                 duration: 1
               })
-              setTimeout($this.toIndex, 1000)
+              setTimeout(()=>{
+                wx.redirectTo({
+                  url: '/pages/repairList/repairList'
+                })
+              },1000)
             }
           })
         } else if (res.cancel) {

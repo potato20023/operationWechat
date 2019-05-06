@@ -23,9 +23,11 @@
 }
 
 .lable{
-  width: 130rpx;
+  /* width: 200rpx; */
+  width: 25%;
   display: inline-block
 }
 .lable1{
-  width: 250rpx;
+  /* width: 320rpx; */
+  width:40%;
 }

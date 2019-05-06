@@ -46,18 +46,23 @@
           <block wx:for="{{remark}}" wx:key="{{index}}">
             <i-step status="finish" icon="right" i-class="main-steps">
               <view slot="title">
-                <text wx:if="{{item.orderStatus==0}}">待接单</text>
+                <text wx:if="{{item.orderStatus==0 && index == 0}}">待接单</text>
+                <text wx:if="{{item.orderStatus==0 && index != 0}}">取消订单</text>
                 <text wx:if="{{item.orderStatus==1}}">接单成功</text>
                 <text wx:if="{{item.orderStatus==2}}">维修中</text>
                 <text wx:if="{{item.orderStatus==3}}">维修完成</text>
               </view>
               <view slot="content" style=''>
+
+                <!-- <view wx:if="{{item.orderStatus==0 && !item.name }}">
+                  <i-icon type="clock" /> {{item.updateTime}}
+                </view>
                 <view wx:if="{{item.orderStatus==0 && item.name }}">
                   工单转移 {{item.name}}
                   <i-icon type="clock" /> {{item.updateTime}}
-                </view>
-                <view wx:else>
-                  {{item.name }}
+                </view> -->
+                <view>
+                  <text wx:if="{{item.name}}">{{item.name }}</text>
                   <i-icon type="clock" /> {{item.updateTime}}
                 </view>
               </view>
