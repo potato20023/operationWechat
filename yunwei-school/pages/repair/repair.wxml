@@ -27,7 +27,7 @@
           <view>故障描述</view>
         </view>
         <view class='desc_con'>
-          <textarea class='remark' bindblur='areaBlur' name='faultDesc' placeholder='请输入50个以内字符' maxlength='50' value='{{describeValue}}'></textarea>
+          <textarea class='remark' bindblur='areaBlur' bindinput='checkNum' name='faultDesc' placeholder='请输入50个以内字符' maxlength='50' value='{{describeValue}}'></textarea>
         </view>
       </view>
 

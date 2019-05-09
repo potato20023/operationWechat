@@ -20,8 +20,8 @@
         <i-icon type="label" size='24' color='#10B976' />
         电话
       </view>
-      <view class='cont'>{{info.remark.phone}}</view>
-    </view> 
+      <view class='cont' bindtap="callPhone" data-phone="{{info.remark.phone}}">{{info.remark.phone}}</view>
+    </view>
   </view>
   <view class='mode'>
     <view class='pros'>

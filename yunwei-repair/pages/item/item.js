@@ -160,6 +160,14 @@ Page({
     }
     
   },
+  // 拨打电话
+  callPhone(e){
+    console.log(e.target.dataset.phone)
+    let phone = e.target.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: e.target.dataset.phone.toString()
+    })
+  },
  
   /**
    * 生命周期函数--监听页面加载

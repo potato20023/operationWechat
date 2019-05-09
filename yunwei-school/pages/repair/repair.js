@@ -22,8 +22,6 @@ Page({
     count:3,     // 可以选择上传图片的数量
     user:{}
   },
-
-  
     // 选择设备类型
   bindPickerChange(e){
     // console.log(e)
@@ -33,6 +31,18 @@ Page({
       equipmentId: $this.data.equipmentList[e.detail.value].id
     })
   },
+  // 校验故障描述字数
+  checkNum(e){
+    let length = e.detail.cursor
+    if (length > 49) {
+      $Toast({
+        content: '不能超过50个字符',
+        type: 'warning'
+      })
+    }
+  },
+  
+
   // 选择故障标签
   tagChoose(e){
     let $this = this
@@ -40,7 +50,6 @@ Page({
       tagId: e.currentTarget.id
     })
   },
-
   // 选择照片
   chooseImage: function () {
     let $this = this
@@ -110,7 +119,6 @@ Page({
       })
     }
   },
-
   // 点击图片预览大图
   previewImage(e){
     let index = e.currentTarget.dataset.index
@@ -145,7 +153,6 @@ Page({
       }
     })
   },
-
   // 提交报修信息
   repairSubmit: function (e) {
     let $this = this
@@ -206,11 +213,7 @@ Page({
         }
       })
     }
-
-
   },
-
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -268,7 +271,6 @@ Page({
               })
             }
           })
-          console.log($this.data.index)
         }
       })
     }

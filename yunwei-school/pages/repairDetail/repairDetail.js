@@ -69,8 +69,14 @@ Page({
       urls: imageList             // 需要预览的图片的http路径
     })
   },
-
-
+  // 拨打电话
+  callPhone(e){
+    console.log(e)
+    let phone = e.target.dataset.phone.toString()
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

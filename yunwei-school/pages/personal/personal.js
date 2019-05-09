@@ -39,8 +39,6 @@ Page({
       sizeType:['original','compressed'],
       sourceType:['album','camera'],
       success: function(res1) {
-        console.log(res1)
-        console.log(res1.tempFilePaths[0])
         if(res1.tempFilePaths){
             wx.compressImage({
               src: res1.tempFilePaths[0],

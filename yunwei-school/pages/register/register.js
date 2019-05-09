@@ -9,11 +9,9 @@ function getFun(fn, time){
       fn.call($this, _con)
     }, time)
   }
-
 }
 function ajaxFun(data){
   let $this = this
-  let qqq
   app.ajaxF({
     url: '/api/wx/schoolList',
     method: 'get',

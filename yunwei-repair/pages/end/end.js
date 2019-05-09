@@ -1,5 +1,6 @@
 // pages/end/end.js
 const app =getApp()
+const {$Toast}  = require('../../assets/dist/base/index.js')
 Page({
 
   /**
@@ -15,39 +16,7 @@ Page({
     remark:'',
     count:3
   },
-//   // 上传文件
-//  uploadFile(){
-//    const $this = this;
-//    wx.chooseImage({
-//      count:3,
-//      success: function(res) {
-//        let tempFilePaths = res.tempFilePaths;
-//        $this.setData({
-//          imgUrl:$this.data.imgUrl.concat(res.tempFilePaths)
-//        })
-//        tempFilePaths.forEach((item,index)=>{
-//          wx.uploadFile({
-//            url: app.globalData.appPath + '/api/wx/upload',
-//            filePath: tempFilePaths[index],
-//            name: 'file',
-//            success: function (res) {
-//              let data = JSON.parse(res.data);
-//              if (data.code == 1) {
-//                $this.setData({
-//                  filelist: $this.data.filelist.concat(data.data.link)
-//                })
-//              } else {
-//                wx.showToast({
-//                  title: '上传失败',
-//                  type: 'error'
-//                })
-//              }
-//            }
-//          })
-//        })
-//      },
-//    })
-//  },
+
   // 选择照片
   chooseImage: function () {
     let $this = this
@@ -182,9 +151,16 @@ Page({
   // 备注内容
   setRemark({detail}){
     console.log(detail)
+    let length = detail.detail.cursor
     this.setData({
       remark:detail.detail.value
     });
+    if(length > 99){
+      $Toast({
+        content:'不能超过100个字符',
+        type:'warning'
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

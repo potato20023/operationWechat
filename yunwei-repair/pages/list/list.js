@@ -36,8 +36,6 @@ Page({
       },
       callback:function(res){
         let data = res.data.rows?res.data.rows:[];
-        console.log(data)
-        
         data.forEach(item=>{
           item.createTime = utils.formatTime(item.createTime)
         })
@@ -129,7 +127,7 @@ Page({
    */
   onReachBottom: function () {
     console.log(this.data.endPage)
-    if (! this.data.endPage){
+    if (!this.data.endPage){
       this.setData({
         offset: this.data.offset + 1
       })

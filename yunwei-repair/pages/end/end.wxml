@@ -35,6 +35,8 @@
     <i-icon size='24' color="#0098FD" type="brush" slot="icon" />
   </i-cell>
   <i-input type='textarea' bindchange="setRemark" maxlength='100' autofocus placeholder="备注" />
+  <i-toast id="toast"/>
 </i-cell-group>
+
 <i-button type='primary' bindtap='submitData'>提交</i-button>
 
