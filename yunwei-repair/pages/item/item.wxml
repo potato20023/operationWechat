@@ -13,18 +13,21 @@
       </view>
     </view>
   </view>
-  <i-cell-group>
-    <i-cell title="位置" value="{{xxdz}}">
-      <i-icon size='24' color="#FEA54D" type="coordinates_fill" slot="icon" />
-    </i-cell>
-    <i-cell title="报修人" value="{{userName}}">
-      <i-icon size='24' color="#0098FD" type="group" slot="icon" />
-    </i-cell>
-    <i-cell title="联系电话" value="{{phone}}">
-      <i-icon size='24' color="#05BF4F" type="mobilephone" slot="icon" />
-    </i-cell>
-    <view style='width:100%;height:100rpx;position:relative;top:-100rpx;' bindtap="callPhone" data-phone="{{phone}}"></view>
-  </i-cell-group>
+  <view class='reInfo'> 
+    <i-cell-group>
+      <i-cell title="位置" value="{{xxdz}}">
+        <i-icon size='24' color="#FEA54D" type="coordinates_fill" slot="icon" />
+      </i-cell>
+      <i-cell title="报修人" value="{{userName}}">
+        <i-icon size='24' color="#0098FD" type="group" slot="icon" />
+      </i-cell>
+      <i-cell title="联系电话" value="{{phone}}">
+        <i-icon size='24' color="#05BF4F" type="mobilephone" slot="icon" />
+      </i-cell>
+    </i-cell-group>
+    <view class='phone' bindtap="callPhone" data-phone="{{phone}}"></view>
+  </view>
+  
 
   <i-cell-group style="margin:40rpx 0;display:block">
     <i-cell title="故障描述">

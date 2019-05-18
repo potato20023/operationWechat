@@ -1,4 +1,8 @@
 /* pages/repairList/repairList.wxss */
+page{
+  height: 100%;
+  background-color: #ebecf5;
+}
 .container{
   background-color: #ebecf5;
   padding-top: 100rpx;
