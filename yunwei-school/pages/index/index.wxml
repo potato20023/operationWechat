@@ -1,4 +1,4 @@
-<!--School/pages/schoolIndex/schoolIndex.wxml-->
+
 <view class='schoolIndex'>
   <!-- 学校信息 -->
   <view class='schoolData'>
@@ -48,8 +48,8 @@
         <text>报修进度</text>
       </view>
     </view>
-    <!-- <view class='repairItem'>
-      <view class='item equipment'>
+    <view class='repairItem'>
+      <view class='item equipment' bindtap='toEquipment'>
         <image src='/static/img/weixin_10.png'></image>
         <text>我的设备</text>
       </view>
@@ -59,6 +59,6 @@
         <image src='/static/img/weixin_09.png'></image>
         <text>学习交流</text>
       </view>    
-    </view> -->
+    </view>
   </view>
 </view>

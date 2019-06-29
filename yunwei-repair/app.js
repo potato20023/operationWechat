@@ -3,16 +3,17 @@ App({
   onLaunch: function () {
     
     // 判断token 是否存在
-    let token = wx.getStorageSync('token');
-    if(!token){
-      wx.reLaunch({
-        url: '/pages/login/login',
-      })
-    }else{
-      wx.reLaunch({
-        url: '/pages/index/index',
-      })
-    }
+    const $this = this;
+    wx.getStorage({
+      key: 'token',
+      success: function (res) {
+        console.log(res)
+        $this.globalData.token = res.data;
+        wx.reLaunch({
+          url: '/pages/index/index',
+        })
+      },
+    })
   },
   // 微信请求的封装
   ajax: function ({ url, method, data, loading, callback }) {
@@ -65,8 +66,8 @@ App({
   globalData: {
     userInfo: null,
     // appPath:'http://192.168.17.190:7001'
-    appPath: 'http://192.168.18.114:7001'
+    // appPath: 'http://192.168.18.114:7001'
     // appPath: "http://112.124.203.17:7001"
-    // appPath: 'http://192.168.17.146:7001'
+    appPath: 'http://192.168.17.146:7001'
   }
 })

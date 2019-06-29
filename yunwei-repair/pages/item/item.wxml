@@ -79,42 +79,68 @@
     </view>
   </i-cell-group>
   <view wx:if="{{status!=3}}">
-  <i-row wx:if="{{status==1}}">
-    <i-col span="12" i-class="col-class">
-      <i-button type="primary" bindtap='setOrder'>接单</i-button>
-    </i-col>
-    <i-col span="12" i-class="col-class">
-      <i-button type="default" bindtap='cancelOrder'>取消</i-button>
-    </i-col>
-  </i-row>
-  <i-row wx:else>
-    <i-col span="12" i-class="col-class">
-      <i-button type="success" bindtap='endOrder'>完成维修</i-button>
-    </i-col>
-    <i-col span="12" i-class="col-class">
-      <i-button type="default" bindtap='cancelOrder'>取消</i-button>
-    </i-col>
+    <i-row wx:if="{{status==1}}">
+      <i-col span="12" i-class="col-class">
+        <i-button type="primary" bindtap='setOrder'>接单</i-button>
+      </i-col>
+      <i-col span="12" i-class="col-class">
+        <i-button type="default" bindtap='cancelOrder'>取消</i-button>
+      </i-col>
+    </i-row>
+    <i-row wx:else>
+      <i-col span="12" i-class="col-class">
+        <i-button type="success" bindtap='endOrder'>完成维修</i-button>
+      </i-col>
+      <i-col span="12" i-class="col-class">
+        <i-button type="default" bindtap='cancelOrder'>取消</i-button>
+      </i-col>
 
-  </i-row>
+    </i-row>
   </view>
   <view wx:else>
-  <i-cell-group>
-    <i-cell title="维修完成图片">
-      <i-icon size='24' color="#FEA54D" type="camera" slot="icon" />
-    </i-cell>
-    <view class='upload'>
-      <block wx:for="{{b.filelist}}" wx:key="{{index}}">
-        <view class='img-item'>
-          <image  src="{{item}}" data-index='{{index}}' data-ifOver="1" bindtap='previewImg'></image>
-        </view>
-      </block>
+    <i-cell-group>
+      <i-cell title="维修完成图片" wx:if='{{b.filelist}}'>
+        <i-icon size='24' color="#FEA54D" type="camera" slot="icon" />
+      </i-cell>
+      <view class='upload'>
+        <block wx:for="{{b.filelist}}" wx:key="{{index}}">
+          <view class='img-item'>
+            <image  src="{{item}}" data-index='{{index}}' data-ifOver="1" bindtap='previewImg'></image>
+          </view>
+        </block>
+      
+      </view>
+      <i-cell title="现场备注" value="{{workername}}">
+        <i-icon size='24' color="#0098FD" type="brush" slot="icon" />
+      </i-cell>
+      <i-input type='textarea' value='{{b.remark}}' disabled  bindblur="setRemark" maxlength='100' autofocus placeholder="备注" />
+    </i-cell-group>
+
+    <!-- 评论 -->
     
-    </view>
-    <i-cell title="现场备注" value="{{workername}}">
-      <i-icon size='24' color="#0098FD" type="brush" slot="icon" />
-    </i-cell>
-    <i-input type='textarea' value='{{b.remark}}' disabled  bindblur="setRemark" maxlength='100' autofocus placeholder="备注" />
-  </i-cell-group>
+      
+      <view class='evaluate' wx:if='{{serviceAttr}}'>
+        <view class='title'>
+          <image src='/assets/img/evaluate.png'></image>
+          评论
+        </view>
+        <view wx:if='{{serviceAttr}}' class='eval'>
+          <view class='label'>服务态度</view>
+          <view class='rate'>
+            <i-rate bind:change='change1' value='{{serviceAttr}}'>{{serviceAttr}}分</i-rate>
+          </view>
+        </view>
+        <view wx:if='{{requireSpeed}}' class='eval'>
+          <view class='label'>服务时效</view>
+          <view class='rate'>
+            <i-rate bind:change='change2' value='{{requireSpeed}}'>{{requireSpeed}}分</i-rate>
+          </view>
+        </view>
+        <view wx:if='{{evaDesc}}' class='text'>
+          {{evaDesc}}
+        </view>
+      </view>
+
   </view>
   
 </view>

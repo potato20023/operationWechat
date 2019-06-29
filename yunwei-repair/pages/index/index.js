@@ -2,6 +2,8 @@
 const app = getApp()
 const utils = require('../../utils/util.js')
 
+const io = require('../../utils/weapp.socket.io.js')
+
 Page({
 
   /**
@@ -18,6 +20,22 @@ Page({
     headUrl:''  // 默认头像
   },
 
+  websocket(){
+    const socket = io('http://localhost:8080')
+
+    socket.on('connect',function(){
+      console.log('connected')
+    })
+
+    socket.on('new', d => {
+      console.log('received news: ', d)
+    })
+
+    socket.emit('new', {
+      title: 'this is a news'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -29,6 +47,7 @@ Page({
       workId:userInfo.jobNumber,
       headUrl: app.globalData.appPath + '/public/user/morentoux.png'
     })
+    // this.websocket();
     //this.getOrderList();
   },
   // 获取展示工单

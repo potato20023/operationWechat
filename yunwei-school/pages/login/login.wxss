@@ -1,5 +1,8 @@
 /* pages/login/login.wxss */
 /* logo */
+page{
+  height:100%;
+}
 .logo{
   padding-top: 140rpx;
   padding-bottom: 80rpx;

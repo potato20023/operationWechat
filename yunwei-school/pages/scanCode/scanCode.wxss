@@ -1,0 +1,135 @@
+/* pages/scanCode/scanCode.wxss *//* pages/repair/repair.wxss */
+/* 报修信息 */
+.container{
+  padding: 20rpx;
+  /* margin-bottom: 100rpx; */
+}
+/* 公共样式 -- start */
+.container .label view{
+  display: inline-block;
+}
+.container .label image{
+  width: 40rpx;
+  height:35rpx;
+  margin-right: 10rpx;
+  position: relative;
+  top: 4rpx;
+}
+.container .con{
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+/* 公共样式 -- end */
+
+/* 设备详情 -- start */
+.container .details{
+  width: 100%;
+}
+.container .details .detail{
+  width: 100%;
+  height: 100rpx;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx;
+}
+.container .details .more{
+  text-align: center;
+  color: #b5b8c1;
+  font-size: 24rpx;
+}
+
+/* 设备详情 -- end */
+
+/* 故障描述 */
+
+.container .con .describe{
+  margin-top: 30rpx;
+}
+.container .con .describe .desc_con{
+  margin-top: 10rpx;
+  background-color: #f1f4fb;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 5rpx;
+}
+.container .con .describe .desc_con .remark{
+  display: block;
+  width: 100%;
+  height: 350rpx;
+}
+
+
+/* 故障标签 */
+.container .con .fault_label{
+  display: inline-block;
+}
+.container .con .fault_label .fault{
+  border-radius: 5rpx;
+  padding:15rpx;
+  margin-left: 0;
+  margin: 10rpx;
+  font-size: 28rpx;
+}
+
+
+/* 添加照片 */
+.container .img,.container .img .img_list{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0rpx 6rpx 6rpx 6rpx;
+}
+.container .img .add,.container .img .img_list .image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.container .img .add{
+  background-color: #fff;
+  padding: 15rpx;
+}
+.container .img .add image{
+  width: 130rpx;
+  height: 130rpx;  
+}
+  /* 删除 */
+.container .img .img_list{
+  position: relative;
+}
+.container .img .img_list .delete{
+  width: 50rpx;
+  height:50rpx;
+  position: absolute;
+  top: 0;
+  right:6rpx;
+  background-color: #ddd;
+  text-align: center;
+  border-radius: 0 0 0 80%;
+}
+/* 是否上传完毕 */
+/* .container .img .img_list .uploadOver{
+  position: absolute;
+  top: 0;
+  left: 6rpx;
+  width: 160rpx;
+  height: 160rpx;
+  background-color: #ddd;
+  opacity: 0.5;
+} */
+
+
+/* 报修按钮 */
+.container .btn{
+  width: 100%;
+  box-sizing: border-box;
+  margin: 20rpx 0;
+  /* position: fixed;
+  bottom: 30rpx;
+  left: 10%; */
+}
+.container .btn button{
+  /* width: 100%; */
+  color: #fff;
+  background-color: #18c9ff;
+}
+

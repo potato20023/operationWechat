@@ -30,13 +30,15 @@
 .main .imgList{
   display: flex;
   background-color: #fff;
-  padding-bottom: 20rpx;
+  /* padding-bottom: 20rpx; */
+  padding: 10rpx 20rpx 20rpx 20rpx;
 }
 .main .imgList image{
   width:200rpx;
   height:200rpx;
   display:inline-block;
-  margin-left:10rpx;
+  margin-left:15rpx;
+  border-radius: 5rpx;
 }
 .main .steps{
   background-color: #fff;
@@ -92,3 +94,40 @@
   height: 100rpx;
   z-index: 100;
 }
+
+/* 评价 -- start */
+.evaluate{
+  background-color:#fff;
+  padding: 30rpx;
+}
+.evaluate .title{
+  width: 100%;
+  height:80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.evaluate .title image{
+  width: 50rpx;
+  height:50rpx;
+  position: relative;
+  top: 15rpx;
+}
+.evaluate .eval{
+  width:100%;
+  height:100rpx;
+  display: flex;
+  justify-content: space-between;
+  color:#666;
+  line-height: 40rpx;
+  padding: 30rpx 0;
+}
+.evaluate .text{
+  width: 100%;
+  /* margin: 30rpx; */
+  background-color: #f2f4fc;
+  padding: 20rpx;
+}
+
+
+/* 评价 -- end */

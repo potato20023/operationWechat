@@ -31,12 +31,12 @@ page{
   color: #333;
   font-size: 30rpx;
 }
-.container .list .item .item_top .time{
-  color: #b3bbc7;
-  font-size: 26rpx;
+.container .list .item .item_top .num{
+  color: #666;
+  font-size: 28rpx;
 }
 .container .list .item .item_center{
-  margin:12rpx 0 20rpx 0;
+  margin:20rpx 0;
 }
 .container .list .item .item_center .status{
   background-color:#f19149;
@@ -47,16 +47,35 @@ page{
   border-radius: 14rpx;
   font-size: 26rpx;
   line-height: 30rpx;
-  margin-top: 6rpx;
+  margin-top: 10rpx;
 }
 /* .container .list .item .item_center .operation text{
   color: #18c9ff;
   margin-left: 10rpx;
 } */
 
-.container .list .item .item_bottom .num{
-  color: #666;
-  font-size: 28rpx;
+.container .list .item .item_bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.container .list .item .item_bottom .time{
+  color: #b3bbc7;
+  font-size: 26rpx;
+  padding-top: 20rpx;
+}
+.container .list .item .item_bottom .evaluate{
+  width: 200rpx;
+  /* height: 50rpx; */
+  text-align: center;
+  color: #b3bbc7;
+  font-size: 30rpx;
+}
+.container .list .item .item_bottom .evaluate_rate{
+  width: 310rpx;
+  /* height: 50rpx; */
+  text-align: left;
+  color: #b3bbc7;
+  font-size: 26rpx;
 }
 .container .list .item .left_circ{
   width: 35rpx;

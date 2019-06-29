@@ -18,43 +18,43 @@ Page({
   },
 
   // 点击完成维修
-  switchChange: function (e) {
-    var $this = this;
-    if (!this.data.disabled){
-      return false
-    }
-    console.log(e.detail.value)
-    wx.showModal({
-      title: '提示',
-      content: '您是否确认维修已完成？',
-      success(res) {
-        if (res.confirm) {
-          app.ajaxF({
-            url: '/api/wx/order/' + $this.data.id,
-            method: 'put',
-            data: {
-              status: 3,
-              workerId: $this.data.info.remark.workerId
-            },
-            success(res) {
-              wx.reLaunch({
-                url: '/pages/schoolIndex/schoolIndex'
-              })
-            },
-            fail(res) {
-              $this.setData({
-                ifOver: false
-              })
-            }
-          })
-        } else if (res.cancel) {
-          $this.setData({
-            ifOver: false
-          })
-        }
-      }
-    })
-  },
+  // switchChange: function (e) {
+  //   var $this = this;
+  //   if (!this.data.disabled){
+  //     return false
+  //   }
+  //   console.log(e.detail.value)
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '您是否确认维修已完成？',
+  //     success(res) {
+  //       if (res.confirm) {
+  //         app.ajaxF({
+  //           url: '/api/wx/order/' + $this.data.id,
+  //           method: 'put',
+  //           data: {
+  //             status: 3,
+  //             workerId: $this.data.info.remark.workerId
+  //           },
+  //           success(res) {
+  //             wx.reLaunch({
+  //               url: '/pages/schoolIndex/schoolIndex'
+  //             })
+  //           },
+  //           fail(res) {
+  //             $this.setData({
+  //               ifOver: false
+  //             })
+  //           }
+  //         })
+  //       } else if (res.cancel) {
+  //         $this.setData({
+  //           ifOver: false
+  //         })
+  //       }
+  //     }
+  //   })
+  // },
   // 点击图片查看大图
   previewImage(e){
     // console.log(e.currentTarget.dataset.index)
@@ -77,6 +77,13 @@ Page({
       phoneNumber: phone,
     })
   },
+
+  // 查看更多详情
+  toMore() {
+    wx.navigateTo({
+      url: '/pages/device/deviceDetail/deviceDetail?deviceId=' + this.data.info.deviceId + '&fromWhere=0'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -88,48 +95,59 @@ Page({
     //     $this.data.user = res.data
     //   },
     // })
-    // console.log(options)
+    console.log(options)
     $this.setData({
       id: options.id
     })
-    // 获取详情
-    app.ajaxF({
-      url: '/api/wx/order/' + options.id,
-      method: 'get',
-      success: function (res) {
-        // console.log(res)
-        let day = utils.formatDay(res.data.updateTime, res.data.createTime)
-        res.data.picture = JSON.parse(res.data.picture)
-        res.data.createTime = utils.formatTime(res.data.createTime)
-        res.data.remark.forEach(function (item, index, list) {
-          if (res.data.status == item.orderStatus) {
-            res.data.remark = item
-          }
-        })
+    let fromWhere = options.fromWhere
+    if (fromWhere == 1){
+      // 获取详情 -- 工单列表处 -- 工单id
+      app.ajaxF({
+        url: '/api/wx/order/' + options.id,
+        method: 'get',
+        success: function (res) {
+          // console.log(res)
+          let day = utils.formatDay(res.data.updateTime, res.data.createTime)
+          res.data.picture = JSON.parse(res.data.picture)
+          res.data.createTime = utils.formatTime(res.data.createTime)
+          res.data.remark.map(item => {
+            item.updateTime = utils.formatTime(item.updateTime)
+          })
 
-        $this.setData({
-          info: res.data,
-          ifOver: res.data.status == 3,
-          disabled: res.data.status == 2,
-          day: day
-        })
-        // console.log($this.data.ifOver)
-      }
-    })
+          $this.setData({
+            info: res.data,
+            ifOver: res.data.status == 3,
+            disabled: res.data.status == 2,
+            day: day,
+            verticalList: res.data.remark
+          })
+        }
+      })
+    }else{
+      // 获取详情 -- 设备详情处 -- 设备id
+      app.ajaxF({
+        url: '/api/wx/device/' + options.id,
+        method: 'get',
+        success: function (res) {
+          // console.log(res)
+          let day = utils.formatDay(res.data.updateTime, res.data.createTime)
+          res.data.picture = JSON.parse(res.data.picture)
+          res.data.createTime = utils.formatTime(res.data.createTime)
+          res.data.remark.map(item => {
+            item.updateTime = utils.formatTime(item.updateTime)
+          })
 
-    // 获取维修进度条信息
-    app.ajaxF({
-      url:'/api/wx/getOrderStatus/' + options.id,
-      method:'get',
-      success(res){        
-        res.data.map(item=>{
-          item.updateTime = utils.formatTime(item.updateTime)
-        })
-        $this.setData({
-          verticalList: res.data
-        })
-      }
-    })
+          $this.setData({
+            info: res.data,
+            ifOver: res.data.status == 3,
+            disabled: res.data.status == 2,
+            day: day,
+            verticalList: res.data.remark
+          })
+        }
+      })
+    }
+    
   },
 
   /**

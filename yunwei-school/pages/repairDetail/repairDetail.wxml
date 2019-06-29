@@ -1,50 +1,68 @@
-<!-- 维修详情页 -->
-<view class='proDetail'>
-  <view class='mode'>
-    <view class='pro'>
-      <view class='label'> 
-        <i-icon type="accessory" size='24' color='#18C9FF' />
-        维修编号
-      </view>
-      <view class='cont'>{{id}}</view>
-    </view>
-    <view wx:if='{{info.status == 2 || info.status == 3}}' class='pro'>
-      <view class='label'>
-        <i-icon type="addressbook" size='24' color='#FCAD00' />
-        维修员
-      </view>
-      <view class='cont'>{{info.remark.name}}</view>
-    </view>
-    <view wx:if='{{info.status == 2 || info.status == 3}}' class='pro'>
-      <view class='label'>
-        <i-icon type="label" size='24' color='#10B976' />
-        电话
-      </view>
-      <view class='cont' bindtap="callPhone" data-phone="{{info.remark.phone}}">{{info.remark.phone}}</view>
-    </view>
-  </view>
-  <view class='mode'>
-    <view class='pros'>
-      <view class='label'>
-        <i-icon type="brush" size='24' color='#1E7DC5' />
-        故障描述
-      </view>
-      <view class='cont'>{{info.faultDesc}}</view>
-    </view>
-    <view class='pros'>
-      <view class='label'>
-        <i-icon type="camera" size='24' color='#FF8080' />  
-        上传照片
-      </view>
-      <view class='cont'>
-        <view wx:for='{{info.picture}}' wx:key='{{index}}'>
-          <image src='{{item}}' bindtap='previewImage' data-index='{{index}}'></image>
+<!-- 维修详情 -->
+<view class='container'>
+  <!-- 设备详情 -->
+  <view class='con'>
+    <view class='details'>
+      <!-- <view class='num detail'>
+        <view class='label'>
+          <image src='/static/img/num.jpg'></image>
+          <view class='label_name'>设备编号</view>
         </view>
-      </view>      
+        <view class='detail_con'>{{info.deviceId}}</view>
+      </view> -->
+      <view class='num detail'>
+        <view class='label'>
+          <image src='/static/img/num.jpg'></image>
+          <view class='label_name'>维修编号</view>
+        </view>
+        <view class='detail_con'>{{info.id}}</view>
+      </view>
+      <view class='type detail'>
+        <view class='label'>
+          <image src='/static/img/type.jpg'></image>
+          <view class='label_name'>类型</view>
+        </view>
+        <view class='detail_con'>{{info.typeName}}</view>
+      </view>
+      <view class='school detail' wx:if='{{info.workername}}'>
+        <view class='label'>
+          <image src='/static/img/worker.png'></image>
+          <view class='label_name'>维修员</view>
+        </view>
+        <view class='detail_con'>{{info.workername}}</view>
+      </view>
+      <view class='school detail' wx:if='{{info.phone}}'>
+        <view class='label'>
+          <image src='/static/img/phone.png'></image>
+          <view class='label_name'>联系方式</view>
+        </view>
+        <view class='detail_con' bindtap="callPhone" data-phone="{{info.phone}}">{{info.phone}}</view>
+      </view>
+      <view class='more' bindtap='toMore'>点击查看更多</view>
     </view>
   </view>
-  <view class='mode'>
-    <view wx:if="{{verticalList.length > 1}}" class='vertical'>
+
+  <!-- 故障描述 -->
+  <view class='con'>
+    <view class='describe'>
+        <view class='label'>
+          <image src='/static/img/setting.jpg'></image>
+          <view>故障描述</view>
+        </view>
+        <view class='desc_con'>
+          {{info.faultDesc}}
+        </view>
+      </view>
+  </view>
+
+  <!-- 报修图片 -->
+  <view class='img'>
+    <image wx:for='{{info.picture}}' wx:key='{{index}}' src='{{item}}' bindtap='previewImage' data-index='{{index}}'></image>
+  </view>
+
+  <!-- 维修进度时间轴 -->
+  <view class='con' wx:if="{{verticalList.length > 1}}">
+    <view class='vertical'>
       <view class='label'>
         <i-icon type="flag" size='24' color='#E8422A' />
         维修进度
@@ -64,26 +82,28 @@
         </i-step>
       </i-steps>
     </view>
-    <view wx:else class='pro'>
-      <view class='label'>提交时间</view>
-      <view class='cont'>{{info.createTime}}</view>
-    </view>
   </view>
-  <view class='mode'>
-   
-    <view wx:if='{{info.status == 3}}' class='pro'>
-      <view class='label'>处理时长</view>
-      <view class='cont'>{{day}}</view>
+
+  <view class='evaluate' wx:if='{{info.serviceAttr}}'>
+    <view class='title'>
+      <image src='/static/img/evaluate.png'></image>
+      评论
     </view>
-  </view>
-  <view class='pro ifOver'>
-      <view>是否已维修完成</view>
-      <view>
-        <!-- <switch checked='{{ifOver}}' bindchange='switchChange' disabled='{{!disabled}}'/> -->
-        <i-switch value="{{ifOver}}"  size="large" bindchange='switchChange'>
-          <view slot='open'>完成</view>
-          <view slot="close">未完</view>
-        </i-switch>
+    <view wx:if='{{info.serviceAttr}}' class='eval'>
+      <view class='label'>服务态度</view>
+      <view class='rate'>
+        <i-rate bind:change='change1' value='{{info.serviceAttr}}'>{{info.serviceAttr}}分</i-rate>
       </view>
     </view>
+    <view wx:if='{{info.requireSpeed}}' class='eval'>
+      <view class='label'>服务时效</view>
+      <view class='rate'>
+        <i-rate bind:change='change2' value='{{info.requireSpeed}}'>{{info.requireSpeed}}分</i-rate>
+      </view>
+    </view>
+    <view wx:if='{{info.evaluateDesc}}' class='text'>
+      {{info.evaluateDesc}}
+    </view>
+  </view>
+
 </view>

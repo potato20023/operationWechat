@@ -1,0 +1,28 @@
+<!--pages/progress/evaluate/evaluate.wxml-->
+<view class='container'>
+<form bindsubmit='evaluateSubmit'>
+  <view class='evaluate'>
+    <view class='eval'>
+      <view class='label'>服务态度</view>
+      <view class='rate'>
+        <i-rate bind:change='change1' value='{{value1}}' size='18'>{{value1}}分</i-rate>
+      </view>
+    </view>
+    <view class='eval'>
+      <view class='label'>服务时效</view>
+      <view class='rate'>
+        <i-rate bind:change='change2' value='{{value2}}' size='18'>{{value2}}分</i-rate>
+      </view>
+    </view>
+    <view class='text'>
+      <textarea placeholder='快来说点什么吧' bindinput='checkNum' name='textValue' maxlength='50'></textarea>
+      <text>{{textValue}}</text>
+    </view>
+  </view>
+  <view class='btn'>
+    <button form-type='submit'>评价</button>
+  </view>
+</form>
+  <i-toast id="toast" />
+  <i-message id="message" />
+</view>

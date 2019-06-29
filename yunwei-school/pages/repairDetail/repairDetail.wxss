@@ -1,60 +1,121 @@
 /* School/pages/proDetail/proDetail.wxss */
-
+page{
+  /* height:100%; */
+}
 /* 维修详情 */
-view{box-sizing: border-box;}
-.proDetail{
-  width: 100%;
-  background-color: #EBEBEB;
-  font-size: 28rpx;
-  color: #6F777A;
+.container{
+  padding: 20rpx;
+  /* margin-bottom: 100rpx; */
 }
-.proDetail .mode{
-  margin-bottom: 15rpx;
+/* 公共样式 -- start */
+.container .label view{
+  display: inline-block;
 }
-.proDetail .vertical{
+.container .label image{
+  width: 40rpx;
+  height:35rpx;
+  margin-right: 10rpx;
+  position: relative;
+  top: 4rpx;
+}
+.container .con{
   background-color: #fff;
   padding: 20rpx;
-}
-.proDetail .pro{
-  width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
-  background-color: white;
-  display: flex;
-  margin-bottom: 5rpx;
-}
-.proDetail .pro .label{
-  width: 230rpx;
-  height: 80rpx;
-  padding-left: 20rpx;
-}
-.proDetail .pros{
-  width: 100%;
-  background-color: white;
-  margin-bottom: 5rpx;
-  padding: 20rpx;
-}
-.proDetail .pros .cont{
-  color: #999;
-  padding: 10rpx;
-  display: flex;
-}
-.proDetail .pros .cont>view{
-  width: 100rpx;
-  height: 100rpx;
-  margin: 10rpx;
-}
-.proDetail .pros .cont image{
-  width: 100rpx;
-  height: 100rpx;
-}
-.proDetail .ifOver{
-  justify-content: space-between;
-  padding: 0 20rpx;
-}
-.proDetail .reqairName{
-  margin-right: 20rpx;
-}
-.proDetail .vertical .label{
   margin-bottom: 20rpx;
 }
+
+/* 公共样式 -- end */
+
+/* 设备详情 -- start */
+.container .details{
+  width: 100%;
+}
+.container .details .detail{
+  width: 100%;
+  height: 100rpx;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx;
+}
+.container .details .more{
+  text-align: center;
+  color: #b5b8c1;
+  font-size: 24rpx;
+}
+
+/* 设备详情 -- end */
+
+/* 故障描述 --start */
+
+.container .con .describe{
+  margin-top: 30rpx;
+}
+.container .con .describe .desc_con{
+  margin-top: 10rpx;
+  /* background-color: #f1f4fb; */
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 5rpx;
+}
+/* 故障描述 --end */
+
+/* 报修图片 -- start */
+.container .img{
+  width: 100%;
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: left;
+}
+.container .img image{
+  width: 30%;
+  height:220rpx;
+  /* float: left; */
+  margin: 0 11rpx;
+  border-radius: 6rpx;
+}
+/* 报修图片 -- end */
+
+/* 维修进度 时间轴 -- start */
+
+/* 维修进度 时间轴 -- end */
+
+/* 评价 -- start */
+.container .evaluate{
+  background-color:#fff;
+}
+.evaluate .title{
+  width: 100%;
+  height:80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  /* border-bottom: 1rpx solid #ddd; */
+  padding: 0 20rpx;
+}
+.evaluate .title image{
+  width: 50rpx;
+  height:50rpx;
+  position: relative;
+  top: 15rpx;
+}
+.container .evaluate .eval{
+  width:100%;
+  height:100rpx;
+  display: flex;
+  justify-content: space-between;
+  color:#666;
+  line-height: 100rpx;
+  padding: 20rpx;
+}
+/* .container .evaluate .eval .rate{
+  width: 260rpx;
+  text-align: left;
+} */
+.container .evaluate .text{
+  /* background-color: #f2f4fc; */
+  margin-top: 30rpx;
+  padding: 20rpx;
+}
+
+
+/* 评价 -- end */

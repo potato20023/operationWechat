@@ -24,7 +24,7 @@
               </view>
               <view class='item_top'>
                 <view class='name'>{{item.type}}</view>
-                <view class='time'>{{item.createTime}}</view>
+                <view class='num'>工单号：{{item.id}}</view>
               </view>
               <view class='item_center'>
                 <view wx:if='{{item.status == 0}}' class='status' style='background-color:#b5b5b5;'>待派单</view>
@@ -32,14 +32,14 @@
                 <view wx:if='{{item.status == 2}}' class='status' style='background-color:#18b8ff;'>维修中</view>
                 <view wx:if='{{item.status == 3}}' class='status' style='background-color:#f19149;'>已完成</view>
               </view>
-              <view class='item_bottom'>
-                <view class='num'>工单号：{{item.id}}</view>        
+              <view class='item_bottom'> 
+                <view class='time'>{{item.createTime}}</view>    
               </view>
             </view>
           </view>
           <view slot="button" class="i-swipeout-demo-button-group" style="background:#18c9ff;width:300rpx;padding:68rpx 0;display:flex;">
-              <view class="i-swipeout-demo-button" style="width:140rpx;color:#fff;text-align:center;" bindtap="Edit" id='{{item.id}}'> <i-icon size="32" type="brush_fill"></i-icon></view>
-              <view class="i-swipeout-demo-button" style="width:140rpx;color:#fff;text-align:center;" bindtap="Delete" id='{{item.id}}'><i-icon size="32" type="trash"></i-icon></view>
+              <view class="i-swipeout-demo-button" style="width:140rpx;color:#fff;text-align:center;" bindtap="Edit" id='{{item.id}}' data-deviceId='{{item.deviceId}}'> <i-icon size="32" type="brush_fill"></i-icon></view>
+              <view class="i-swipeout-demo-button" style="width:140rpx;color:#fff;text-align:center;" bindtap="Delete" id='{{item.id}}' data-deviceId='{{item.deviceId}}'><i-icon size="32" type="trash"></i-icon></view>
               <i-toast id="toast" />
               
           </view>
@@ -60,7 +60,7 @@
               </view>
               <view class='item_top'>
                 <view class='name'>{{item.type}}</view>
-                <view class='time'>{{item.createTime}}</view>
+                <view class='num'>工单号：{{item.id}}</view>
               </view>
               <view class='item_center'>
                <view wx:if='{{item.status == 0}}' class='status' style='background-color:#b5b5b5;'>待派单</view>
@@ -69,7 +69,7 @@
                 <view wx:if='{{item.status == 3}}' class='status' style='background-color:#f19149;'>已完成</view>
               </view>
               <view class='item_bottom'>
-                <view class='num'>工单号：{{item.id}}</view>        
+                <view class='time'>{{item.createTime}}</view>       
               </view>
             </view>
           </view>
@@ -84,24 +84,31 @@
         <view class='circ' wx:if='{{item.status == 0}}' style='background-color:#b5b5b5;'></view>
         <view class='circ' wx:if='{{item.status == 1}}' style='background-color:#7ecef4;'></view>
         <view class='circ' wx:if='{{item.status == 2}}' style='background-color:#18b8ff;'></view>
-        <view class='circ' wx:if='{{item.status == 3}}' style='background-color:#f19149;'></view>
+        <view class='circ' wx:if='{{item.status == 3 && !item.totalScore}}' style='background-color:#f19149;'></view>
+        <view class='circ' wx:if='{{item.status == 3 && item.totalScore}}' style='background-color:#18b9ff;'></view>
       </view>
       <view class='item_top'>
         <view class='name'>{{item.type}}</view>
-        <view class='time'>{{item.createTime}}</view>
+        <view class='num'>工单号：{{item.id}}</view> 
       </view>
       <view class='item_center'>
         <view wx:if='{{item.status == 0}}' class='status' style='background-color:#b5b5b5;'>待派单</view>
         <view wx:if='{{item.status == 1}}' class='status' style='background-color:#7ecef4;'>待接单</view>  
         <view wx:if='{{item.status == 2}}' class='status' style='background-color:#18b8ff;'>维修中</view>
-        <view wx:if='{{item.status == 3}}' class='status' style='background-color:#f19149;'>已完成</view>
+        <view wx:if='{{item.status == 3 && !item.totalScore}}' class='status' style='background-color:#f19149;'>已完成</view>
+        <view wx:if='{{item.status == 3 && item.totalScore}}' class='status' style='background-color:#18b9ff;'>已完成</view>
         <!-- <view class='operation'>
           <text>编辑</text>
           <text>删除</text>
         </view> -->
       </view>
       <view class='item_bottom'>
-        <view class='num'>工单号：{{item.id}}</view>        
+        <view class='time'>{{item.createTime}}</view>
+        <view wx:if='{{item.hasEvaluate}}' class='evaluate_rate'>
+          <i-rate value='{{item.totalScore}}' size='18'>{{item.totalScore}}分</i-rate>
+        </view>
+        <view wx:else class='evaluate' catchtap='toEvaluate' id='{{item.id}}' data-workerid='{{item.workerId}}'>点击评价</view> 
+        <!-- <view class='evaluate' catchtap='toEvaluate' id='{{item.id}}' data-workerid='{{item.workerId}}'>点击评价</view>        -->
       </view>
     </view>
   </view>

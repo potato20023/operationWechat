@@ -2,22 +2,26 @@
   "pages": [
     "pages/login/login",
     "pages/register/register",
-    "pages/schoolIndex/schoolIndex",
-    "pages/study/study",
     "pages/repairDetail/repairDetail",
-    "pages/repairSuccess/repairSucess",
     "pages/test/test",
     "pages/repairList/repairList",
-    "pages/repair/repair",
     "pages/personal/personal",
     "pages/updateName/updateName",
     "pages/updatePhone/updatePhone",
-    "pages/updatePassword/updatePassword"
+    "pages/updatePassword/updatePassword",
+    "pages/index/index",
+    "pages/scanCode/scanCode",
+    "pages/device/deviceDetail/deviceDetail",
+    "pages/device/deviceType/deviceType",
+    "pages/device/deviceList/deviceList",
+    "pages/progress/evaluate/evaluate",
+    "pages/study/studyList/studyList",
+    "pages/device/writeDevice/writeDevice"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#18c9ff",
-    "navigationBarTitleText": "报修助手",
+    "navigationBarTitleText": "智简报修",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#fff"
   },
@@ -37,7 +41,8 @@
     "i-step": "./static/dist/step/index",
     "i-switch": "./static/dist/switch/index",
     "i-divider": "./static/dist/divider/index",
-    "i-card": "./static/dist/card/index"
+    "i-card": "./static/dist/card/index",
+    "i-rate": "./static/dist/rate/index"
   },
   "sitemapLocation": "sitemap.json"
 }
