@@ -1,0 +1,69 @@
+/* pages/device/deviceDetail/deviceDetail.wxss */
+page{
+  height: 100%;
+}
+.container {
+  padding: 20rpx;
+}
+.container .deviceDetail{
+  background-color: #fff;
+  padding: 15rpx;
+}
+
+/* 上方图片与状态 -- start */
+.container .deviceDetail .detail_1{
+  width: 100%;
+  height:100%;
+  display: flex;
+  justify-content: left;
+}
+.container .deviceDetail .detail_1 image{
+  width: 240rpx;
+  height:240rpx;
+  margin-right: 40rpx;
+  border: 1rpx solid #d2d2d2;
+}
+.container .deviceDetail .detail_1 .detail_1r{
+  color:#666;
+
+}
+.container .deviceDetail .detail_1 .detail_1r .status text{
+  /* color: #22ac38; */
+  padding-left: 10rpx;
+  line-height: 80rpx;
+}
+.container .deviceDetail .detail_1 .detail_1r .numG{
+  margin-bottom:20rpx;
+}
+.container .deviceDetail .detail_1 .detail_1r .numG text{
+  padding-left: 10rpx;
+}
+.container .deviceDetail .detail_1 .detail_1r .pro{
+  width: 150rpx;
+  height:60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 6rpx;
+}
+.container .deviceDetail .detail_1 .detail_1r .pro0{
+  background-color: #e60012;
+}
+.container .deviceDetail .detail_1 .detail_1r .pro1{
+  background-color: #18b7ff;
+}
+/* 上方图片与状态 -- end */
+
+.container .deviceDetail .detail_2{
+  width: 100%;
+  height:100%;
+  line-height: 50rpx;
+  margin: 20rpx 0;
+}
+.container .deviceDetail .detail_2 view{
+  color: #666;
+}
+.container .deviceDetail .detail_2 text{
+  color: #333;
+  margin-left: 10rpx;
+}

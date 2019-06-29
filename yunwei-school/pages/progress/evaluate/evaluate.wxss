@@ -1,0 +1,40 @@
+/* pages/progress/evaluate/evaluate.wxss */
+page{
+  height:100%;
+}
+.container{
+  padding: 20rpx 10rpx;
+}
+.container .evaluate{
+  width: 100%;
+  background-color:#fff;
+  padding: 20rpx;
+}
+.container .evaluate .eval{
+  width:100%;
+  height:100rpx;
+  display: flex;
+  justify-content: space-between;
+  color:#666;
+  line-height: 100rpx;
+}
+.container .evaluate .eval .rate{
+  width: 310rpx;
+  text-align: left;
+}
+.container .evaluate .text{
+  background-color: #f2f4fc;
+  margin-top: 30rpx;
+  padding: 20rpx;
+}
+
+.container .btn{
+  margin: 30rpx auto;
+}
+.container .btn button{
+  width: 80%;
+  background-color:#18c9ff;
+  color:#fff;
+  font-size: 30rpx;
+  letter-spacing: 10rpx;
+}

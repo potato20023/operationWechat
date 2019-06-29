@@ -15,6 +15,7 @@ Page({
     // console.log(e)
     var $this = this
     var tests = e.detail.value
+    // var tests = {phone:15838373750,password:123456}
     if (!(/^[0-9]{11}$/.test(tests.phone))) {
       // 验证账号（3-10位字母，数字）
       if(tests.phone == ''){
@@ -57,11 +58,11 @@ Page({
         method:'post',
         data:tests,
         success:function(res){
-          wx.redirectTo({
-            url: '/pages/schoolIndex/schoolIndex'
+          wx.reLaunch({
+            url: '/pages/index/index'
           })
           wx.setStorage({
-            key: 'user',
+            key: 'userInfo',
             data: res.data.result
           })
           wx.setStorage({
@@ -69,7 +70,7 @@ Page({
             data: res.data.token
           })
           app.globalData.userInfo = res.data.result
-          // console.log(app.globalData.userInfo)
+          app.globalData.token = res.data.token
         },
         fail(res){
           // console.log(333)

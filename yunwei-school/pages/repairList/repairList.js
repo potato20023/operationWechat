@@ -94,15 +94,26 @@ Page({
     let $this = this
     if ($this.data.toggle){
       wx.navigateTo({
-        url: '/pages/repairDetail/repairDetail?id=' + id
+        url: '/pages/repairDetail/repairDetail?id=' + id + '&fromWhere=1'
       })
     }else{
       $this.setData({
         toggle:true
       })
     }
-    console.log('查看详情' + $this.data.toggle)
-    
+    // console.log('查看详情' + $this.data.toggle)    
+  },
+  // 点击评价
+  toEvaluate(e){
+    console.log(e)
+    let id = e.currentTarget.id   // 工单id
+    let workerId = e.target.dataset.workerid   // 维修员id
+    let $this = this;
+    if(id){
+      wx.navigateTo({
+        url: '/pages/progress/evaluate/evaluate?id=' + id + '&workerId=' + workerId
+      })
+    }
   },
 
   // 左滑(待派单)
@@ -135,9 +146,11 @@ Page({
   
   // 编辑
   Edit(e){
-    let id = e.currentTarget.id
+    console.log(e)
+    let id = e.currentTarget.id  // 设备id
+    let deviceId = e.currentTarget.dataset.deviceid  // 工单id
     wx.navigateTo({
-      url: '/pages/repair/repair?id=' + id
+      url: '/pages/scanCode/scanCode?id=' + id + '&deviceId=' + deviceId 
     })
   },
 
@@ -145,6 +158,7 @@ Page({
   Delete(e){
     let $this = this
     let id = e.currentTarget.id
+    let deviceId = e.currentTarget.dataset.deviceid  // 工单id
     wx.showModal({
       title: '提示',
       content: '确定删除本条工单吗？',
@@ -152,7 +166,7 @@ Page({
         if (res.confirm) {
           // console.log('用户点击确定')
           app.ajaxF({
-            url: '/api/wx/order/' + id,
+            url: '/api/wx/order/' + id + '?deviceId=' + deviceId,
             method:'delete',
             success(res) {
               $Message({

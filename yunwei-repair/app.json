@@ -58,7 +58,8 @@
     "i-radio-group": "./assets/dist/radio-group/index",
     "i-radio": "./assets/dist/radio/index",
     "i-divider": "./assets/dist/divider/index",
-    "i-toast": "./assets/dist/toast/index"
+    "i-toast": "./assets/dist/toast/index",
+    "i-rate": "./assets/dist/rate/index"
   },
   "sitemapLocation": "sitemap.json"
 }

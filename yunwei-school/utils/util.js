@@ -10,6 +10,18 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+const formatdata = date => {
+  const data = new Date(date)
+  const year = data.getFullYear()
+  const month = data.getMonth() + 1
+  const day = data.getDate()
+  const hour = data.getHours()
+  const minute = data.getMinutes()
+  const second = data.getSeconds()
+
+  return [year, month, day].map(formatNumber).join('-')
+}
+
 const formatDay = (endTime,startTime) => {
   const time = endTime - startTime
   const minute = parseInt(time/(60*1000))
@@ -27,5 +39,6 @@ const formatNumber = n => {
 
 module.exports = {
   formatTime: formatTime,
-  formatDay:formatDay
+  formatDay:formatDay,
+  formatdata: formatdata
 }

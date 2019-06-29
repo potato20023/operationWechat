@@ -1,8 +1,0 @@
-<!--School/pages/repairSuccess/repairSucess.wxml-->
-<view class='page container'>
-  <view class='img'>
-    <image src='/static/img/finished.png'></image>
-  </view>
-  <!-- <view class='sucText'>操作成功</view> -->
-  <i-button type='info' bindtap='toIndex' class='submit'>确定</i-button>
-</view>

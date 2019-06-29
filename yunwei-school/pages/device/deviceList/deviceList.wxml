@@ -1,0 +1,11 @@
+<!--pages/device/deviceList/deviceList.wxml-->
+<view class='container deviceList'>
+  <view class='item' wx:for='{{list}}' wx:key='{{index}}' bindtap='toDetail' id='{{item.deviceId}}'>
+    <view>设备编号:<text class='num'>{{item.deviceId}}</text></view>
+    <view>
+      <image wx:if='{{item.deviceStatus == 0}}' src='/static/img/status0.png' class='status'></image>
+      <image wx:else src='/static/img/status1.png' class='status'></image>
+      <image src='/static/img/more.png' class='more'></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<!--pages/device/deviceType/deviceType.wxml-->
+<view class='container deviceType'>
+  <view class='item' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='toDeviceList' id='{{item.equipmentId}}'>
+    <image src='{{item.awatar}}'></image>
+    <view class='typeName'>{{item.type}}</view>
+    <view class='num'>数量:{{item.count}}</view>
+  </view>
+</view>

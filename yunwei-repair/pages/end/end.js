@@ -9,6 +9,7 @@ Page({
   data: {
     id:'',
     workerId:'',
+    deviceId:'',   // 设备id
     status:'3',
     filelist:[],
     imgUrl:[],
@@ -134,6 +135,7 @@ Page({
     datas.workerId = $this.data.workerId
     datas.remark = $this.data.remark
     datas.status = $this.data.status
+    datas.deviceId = $this.data.deviceId
     app.ajax({
       url: '/api/wx/workerOrder/' + $this.data.id,
       method: 'put',
@@ -168,7 +170,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       id:options.id,
-      workerId:options.workerId
+      workerId:options.workerId,
+      deviceId:options.deviceId
     })
   },
 

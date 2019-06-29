@@ -1,0 +1,32 @@
+<!--pages/device/deviceDetail/deviceDetail.wxml-->
+<view class='container'>
+  <view class='deviceDetail'>
+    <view class='detail_1'>
+      <view>
+        <image src='{{list.awatar}}'></image>
+        <!-- <image src='/static/img/school3.png'></image> -->
+      </view>
+      
+      <view class='detail_1r'>
+        <view class='num'>设备编号:{{list.deviceId}}</view>
+        <view class='status'>状态:<text wx:if='{{list.deviceStatus == 0}}' style='color:#e60012;'>故障</text><text wx:else style='color:#22ac38;'>正常</text></view>
+        <view class='numG'>健康值:<text style='color:{{numGColor}}'>{{100-list.numG}}</text></view>
+        <view wx:if='{{fromWhere == 1}}'>
+          <view wx:if='{{list.deviceStatus == 0}}' class='pro pro0' bindtap='seeRepair' id='{{list.deviceId}}'>查看详情</view>
+          <view wx:else class='pro pro1' bindtap='toRepair' id='{{list.deviceId}}'>点击报修</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='detail_2'>
+      <view>设备名称: <text>{{list.name}}</text> </view>
+      <view>设备类型: <text>{{list.type}}</text> </view>
+      <view>设备品牌: <text>{{list.brand}}</text> </view>
+      <view>设备厂商: <text>{{list.provider}}</text> </view>
+      <view>出厂时间: <text>{{list.factoryTime}}</text></view>
+      <view>过保时间: <text>{{list.overTime}}</text> </view>
+      <view>报修次数: <text>{{list.numG}}</text> </view>
+    </view>
+    
+  </view>
+</view>

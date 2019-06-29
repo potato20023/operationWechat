@@ -6,16 +6,15 @@ App({
   wx.getStorage({
     key: 'token',
     success: function(res) {
-      console.log(res)
       $this.globalData.token = res.data;
       wx.reLaunch({
-        url: '/pages/schoolIndex/schoolIndex',
+        url: '/pages/index/index',
       })
     },
   })
 
   wx.getStorage({
-    key: 'user',
+    key: 'userInfo',
     success: function(res) {
       $this.globalData.userInfo = res.data
     },
@@ -45,16 +44,14 @@ App({
       method,
       data,
       success: function(res) {
-        // console.log(res)
         if (res.data.code == 1) {
           success(res.data);
-          $this.globalData.token = res.data.data.token
         } else if (res.data.code == 99) {
           wx.removeStorage({
             key: 'token',
             success: function(res) {
                wx.redirectTo({
-                 url: 'pages/login/login',
+                 url: '/pages/login/login',
               })
             },
           })
@@ -108,10 +105,10 @@ App({
 
   globalData: {
     userInfo: {},
-    URL: "http://192.168.18.114:7001",
+    // URL: "http://192.168.18.114:7001",
     // URL: "http://112.124.203.17:7001",
     // URL: "http://192.168.17.190:7001",
-    // URL: "http://192.168.17.146:7001",
+    URL: "http://192.168.17.146:7001",
     token:'' 
   }
 })

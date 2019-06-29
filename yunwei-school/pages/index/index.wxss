@@ -1,4 +1,7 @@
 /* School/pages/schoolIndex/schoolIndex.wxss */
+page{
+  height:100%;
+}
 :root{
   --blur:#18c9ff;
 }
@@ -80,8 +83,7 @@
 /* 维修列表 */
 .schoolIndex .repairList{
   width: 100%;
-  /* padding: 200rpx 70rpx 70rpx 70rpx; */
-  padding: 300rpx 70rpx 70rpx 70rpx;
+  padding: 200rpx 70rpx 70rpx 70rpx;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

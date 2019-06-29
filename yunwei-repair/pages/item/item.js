@@ -12,7 +12,7 @@ Page({
     equipmentId: '',
     schoolId: '',
     remark: [],
-    faultDesc: '',
+    faultDesc: '',  
     tagId: '',
     userId: '',
     status: '',
@@ -28,7 +28,9 @@ Page({
     userName: '',
     phone: '',
     xxdz:'',
-    b:""
+    b:"",
+    serviceAttr: 0,    // 服务态度分数
+    requireSpeed: 0     // 服务时效分数
   },
   // 获取工单详情
   getOrder() {
@@ -48,27 +50,33 @@ Page({
           let data1 = arr.filter(item => {
             return item.orderStatus == 3
           })
+          // $this.setData({
+          //   equipmentId: data.equipmentId,
+          //   schoolId: data.schoolId,
+          //   remark: arr,
+          //   faultDesc: data.faultDesc,
+          //   tagId: data.tagId,
+          //   userId: data.userId,
+          //   status: data.status,
+          //   createTime: data.createTime,
+          //   picture: JSON.parse(data.picture),
+          //   updateTime: data.updateTime,
+          //   workerId: data.workerId,
+          //   workername: data.workername,
+          //   awatar: data.awatar,
+          //   name: data.name,
+          //   type: data.type,
+          //   xxmc: data.xxmc,
+          //   userName: data.userName,
+          //   phone: data.phone,
+          //   xxdz: data.xxdz,
+          //   b: data1[0] ? data1[0]:'',
+          //   evaDesc: data.evaDesc,   // 评论描述
+          //   requireSpeed:
+          // })\
           $this.setData({
-            equipmentId: data.equipmentId,
-            schoolId: data.schoolId,
-            remark: arr,
-            faultDesc: data.faultDesc,
-            tagId: data.tagId,
-            userId: data.userId,
-            status: data.status,
-            createTime: data.createTime,
+            ...data,
             picture: JSON.parse(data.picture),
-            updateTime: data.updateTime,
-            workerId: data.workerId,
-            workername: data.workername,
-            awatar: data.awatar,
-            name: data.name,
-            type: data.type,
-            xxmc: data.xxmc,
-            userName: data.userName,
-            phone: data.phone,
-            xxdz: data.xxdz,
-            b: data1[0] ? data1[0]:''
           })
         }
       }
@@ -116,7 +124,7 @@ Page({
     // let status = '3';
     // this.updateOrder(status);
     wx.navigateTo({
-      url: "/pages/end/end?id="+this.data.id+"&workerId="+this.data.workerId,
+      url: "/pages/end/end?id=" + this.data.id + "&workerId=" + this.data.workerId + '&deviceId=' + this.data.deviceId,
       fail:function(res){
         console.log(res)
       }
