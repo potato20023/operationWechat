@@ -6,7 +6,7 @@
       <image src='{{headUrl}}'></image>
     </view>
     <view class='desc'>
-      <text class='name'>{{name}}</text> {{address}}
+      <text class='name'>{{name}}</text>积分: {{totalScore}}
     </view>
   </view>
   <!-- 工单列表 -->

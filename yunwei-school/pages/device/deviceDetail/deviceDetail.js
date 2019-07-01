@@ -66,7 +66,7 @@ Page({
         fromWhere: options.fromWhere,
         deviceId: options.deviceId
       })
-      $this.getList()
+      // $this.getList()
     }
     
   },

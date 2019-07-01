@@ -113,12 +113,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // let $this = this
-    // $this.setData({
-    //   user: app.globalData.userInfo,
-    //   headUrl: app.globalData.URL + '/public/user/school3.png'
-    // })
-    // $this.indexNum()
+    let $this = this
+    $this.setData({
+      user: app.globalData.userInfo,
+      headUrl: app.globalData.URL + '/public/user/school3.png'
+    })
+    $this.indexNum()
   },
 
   /**

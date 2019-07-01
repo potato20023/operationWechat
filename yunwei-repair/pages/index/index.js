@@ -45,6 +45,7 @@ Page({
       name:userInfo.name,
       address:userInfo.address,
       workId:userInfo.jobNumber,
+      totalScore: userInfo.totalScore,
       headUrl: app.globalData.appPath + '/public/user/morentoux.png'
     })
     // this.websocket();

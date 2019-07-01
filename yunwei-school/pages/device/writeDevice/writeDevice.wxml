@@ -1,13 +1,14 @@
 <!--pages/device/writeDevice/writeDevice.wxml-->
 <view class='container'>
-  <form bindsubmit='formSubmit'>
-    <view>
-      <input name="deviceId" focus='true' type='number'></input>
-      <view class='text'>请手动输入设备编号</view>
-    </view>
-    <view>
-      <button form-type='submit'>报修</button>
-    </view>
-    <i-toast id="toast" />
-  </form>
+  <view class='con'>
+    <form bindsubmit='formSubmit'>
+      <view class='input'>
+        <input name="deviceId" focus='true' type='number' placeholder='手动输入编号'></input>
+      </view>
+      <view class='btn'>
+        <button form-type='submit'>报修</button>
+      </view>
+      <i-toast id="toast" />
+    </form>
+  </view>  
 </view>

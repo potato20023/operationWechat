@@ -53,31 +53,96 @@ Page({
       return false;
     } else {
       // console.log(1111)
-      app.ajaxF({
-        url:'/api/wx/login',
+      wx.request({
+        header: {
+          'content-type': 'application/json', // 默认值
+          'token': app.globalData.token
+        },
+        url: app.globalData.URL + '/api/wx/login',
         method:'post',
         data:tests,
-        success:function(res){
-          wx.reLaunch({
-            url: '/pages/index/index'
-          })
-          wx.setStorage({
-            key: 'userInfo',
-            data: res.data.result
-          })
-          wx.setStorage({
-            key: 'token',
-            data: res.data.token
-          })
-          app.globalData.userInfo = res.data.result
-          app.globalData.token = res.data.token
+        success: function (res) {
+          if (res.data.code == 1) {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+            wx.setStorage({
+              key: 'userInfo',
+              data: res.data.result
+            })
+            wx.setStorage({
+              key: 'token',
+              data: res.data.token
+            })
+            app.globalData.userInfo = res.data.result
+            app.globalData.token = res.data.token
+          } else if (res.data.code == 99) {
+            wx.removeStorage({
+              key: 'token',
+              success: function (res) {
+                wx.redirectTo({
+                  url: '/pages/login/login',
+                })
+              },
+            })
+          } else {
+            if (res.data.message) {
+              wx.showToast({
+                title: res.data.message,
+                icon: 'none',
+                duration: 2000
+              })
+            }
+          }
         },
-        fail(res){
-          // console.log(333)
-          // console.log(res)
+        fail: function (res) {
+          wx.showModal({
+            title: '提示',
+            content: '网络可能出错，请稍后再试',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('sure')
+              } else {
+                console.log('cancel')
+              }
+            }
+          })
         },
-        
+        complete: function (res) {
+          // if (isLoading || isLoading == undefined) {
+          //   wx.hideLoading()
+          // }
+        }
       })
+
+
+
+
+      // app.ajaxF({
+      //   url:'/api/wx/login',
+      //   method:'post',
+      //   data:tests,
+      //   success:function(res){
+      //     wx.reLaunch({
+      //       url: '/pages/index/index'
+      //     })
+      //     wx.setStorage({
+      //       key: 'userInfo',
+      //       data: res.data.result
+      //     })
+      //     wx.setStorage({
+      //       key: 'token',
+      //       data: res.data.token
+      //     })
+      //     app.globalData.userInfo = res.data.result
+      //     app.globalData.token = res.data.token
+      //   },
+      //   fail(res){
+      //     // console.log(333)
+      //     // console.log(res)
+      //   },
+        
+      // })
       
     }
     

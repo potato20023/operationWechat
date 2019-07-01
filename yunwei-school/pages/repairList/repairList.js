@@ -202,7 +202,7 @@ Page({
       offset:1,
       toggle:true
     })
-    this.getList()
+    // this.getList()
    
 
   },

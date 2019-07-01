@@ -1,7 +1,6 @@
 <!--pages/repair/repair.wxml-->
 <!-- 报修信息 -->
 <view class='container'>
-kkkkkk
   <form bindsubmit='repairSubmit'>
     <view class='con'>
     <!-- 设备详情 -->

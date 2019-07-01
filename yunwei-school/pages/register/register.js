@@ -134,19 +134,76 @@ Page({
     } else {
       tests.schoolId = $this.data.schoolid;
       delete tests.password1;
-      app.ajaxF({
-        url: '/api/wx/register',
-        method: 'post',
+
+      wx.request({
+        header: {
+          'content-type': 'application/json', // 默认值
+          'token': app.globalData.token
+        },
+        url: app.globalData.URL + '/api/wx/register',
+        method:'post',
         data: tests,
         success: function (res) {
-          wx.showToast({
-            title: '注册成功',
-            duration:2000,
-            icon:'none'
+          if (res.data.code == 1) {
+            wx.showToast({
+              title: '注册成功',
+              duration:2000,
+              icon:'none'
+            })
+            setTimeout($this.toLogin,2000)
+          } else if (res.data.code == 99) {
+            wx.removeStorage({
+              key: 'token',
+              success: function (res) {
+                wx.redirectTo({
+                  url: '/pages/login/login',
+                })
+              },
+            })
+          } else {
+            if (res.data.message) {
+              wx.showToast({
+                title: res.data.message,
+                icon: 'none',
+                duration: 2000
+              })
+            }
+          }
+        },
+        fail: function (res) {
+          wx.showModal({
+            title: '提示',
+            content: '网络可能出错，请稍后再试',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('sure')
+              } else {
+                console.log('cancel')
+              }
+            }
           })
-          setTimeout($this.toLogin,2000)
+        },
+        complete: function (res) {
+          // if (isLoading || isLoading == undefined) {
+          //   wx.hideLoading()
+          // }
         }
       })
+
+
+      // app.ajaxF({
+      //   url: '/api/wx/register',
+      //   method: 'post',
+      //   data: tests,
+      //   success: function (res) {
+      //     wx.showToast({
+      //       title: '注册成功',
+      //       duration:2000,
+      //       icon:'none'
+      //     })
+      //     setTimeout($this.toLogin,2000)
+      //   }
+      // })
     }
   },
 

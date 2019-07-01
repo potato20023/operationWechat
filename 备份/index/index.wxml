@@ -1,0 +1,64 @@
+
+<view class='schoolIndex'>
+  <!-- 学校信息 -->
+  <view class='schoolData'>
+    <view class='schoolLogo'>
+      <image wx:if="{{user.avatar}}" src="{{user.avatar}}" bindtap='previewImage'></image>
+      <image wx:else src='{{headUrl}}'></image>
+    </view>
+    <view class='info'>
+      <view class='infoTop'>
+        <view class='positin'>叶县</view>
+        <view class='myself'>
+          <!-- <image src='/static/img/mine_fill.png' bindtap='personal'></image> -->
+          <i-icon type="mine"  size='30' color='#18C3FF' bindtap='personal'/>
+        </view>
+      </view>
+      <view class='title'>{{user.xxmc}}</view>
+    </view>
+    <view class='examine'>
+      <view class='examineItem border'>
+        <text>报修审批</text>
+        <text>{{num.wait}}个</text>
+      </view>
+      <view class='examineItem border'>
+        <text>维修中</text>
+        <text>{{num.start}}个</text>
+      </view>
+      <view class='examineItem'>
+        <text>已完成</text>
+        <text>{{num.end}}个</text>
+      </view>
+    </view>
+  </view>
+  <view class='blackBackground'>
+    <image src='/static/img/ic_home_top_image.png'></image>
+  </view>
+  <!-- 报修列表 -->
+  <view class='repairList'>
+    <view class='repairItem'>
+      <view class='item repair' bindtap='toRepair'>
+        <image src='/static/img/weixin_03.png'></image>
+        <text>我要报修</text>
+      </view>
+    </view>
+    <view class='repairItem'>
+      <view class='item jindu' bindtap='progress'>
+        <image src='/static/img/weixin_05.png'></image>
+        <text>报修进度</text>
+      </view>
+    </view>
+    <view class='repairItem'>
+      <view class='item equipment' bindtap='toEquipment'>
+        <image src='/static/img/weixin_10.png'></image>
+        <text>我的设备</text>
+      </view>
+    </view>
+    <view class='repairItem'>
+      <view bindtap='toStudy' class='item study'>
+        <image src='/static/img/weixin_09.png'></image>
+        <text>学习交流</text>
+      </view>    
+    </view>
+  </view>
+</view>
