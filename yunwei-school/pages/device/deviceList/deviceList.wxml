@@ -8,4 +8,5 @@
       <image src='/static/img/more.png' class='more'></image>
     </view>
   </view>
+  <i-toast id="toast" />
 </view>

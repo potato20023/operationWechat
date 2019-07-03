@@ -31,4 +31,6 @@
   <view class='bg'>
     <image src='/assets/img/login_bg.png'></image>
   </view>
+
+  <i-toast id="toast"/>
 </view>

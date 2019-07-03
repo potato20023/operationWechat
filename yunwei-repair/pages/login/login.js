@@ -1,6 +1,7 @@
 // pages/login/login.js
-const app = getApp();
 
+const app = getApp();
+const {$Toast}  = require('../../assets/dist/base/index.js')
 Page({
 
   /**
@@ -14,25 +15,39 @@ Page({
   submitForm(e){
     // console.log(e)
     let $this = this;
-    app.ajax({
-      url:'/api/wx/loging',
-      method:'post',
-      data:e.detail.value,
-      callback(res){
-        console.log(res)
-        wx.setStorage({
-          key: 'token',
-          data: res.data.token,
-        });
-        wx.setStorage({
-          key: 'userInfo',
-          data: res.data.result,
-        });
-        wx.reLaunch({
-          url: '/pages/index/index',
-        })
-      }
-    })
+    if(!e.detail.value.username){
+      $Toast({
+        content:'请输入用户名'
+      })
+    }else if(!e.detail.value.password){
+      $Toast({
+        content:'请输入密码'
+      })
+    }else{
+      
+      app.ajax({
+        url:'/api/wx/loging',
+        method:'post',
+        data:e.detail.value,
+        callback(res){
+          // console.log(res)
+          wx.setStorage({
+            key: 'token',
+            data: res.data.token,
+          });
+          wx.setStorage({
+            key: 'userInfo',
+            data: res.data.result,
+          });
+          wx.reLaunch({
+            url: '/pages/index/index',
+          })
+          $this.globalData.token = res.data.token;
+          $this.globalData.userInfo = res.data.result;
+        }
+      })
+
+    }
   },
   //
   setUsername(e){

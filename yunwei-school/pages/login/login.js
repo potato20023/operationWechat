@@ -1,5 +1,6 @@
 // pages/login/login.js
 var app = getApp();
+const { $Toast } = require('../../static/dist/base/index.js')
 Page({
 
   /**
@@ -19,17 +20,13 @@ Page({
     if (!(/^[0-9]{11}$/.test(tests.phone))) {
       // 验证账号（3-10位字母，数字）
       if(tests.phone == ''){
-        wx.showToast({
-          title: '请输入手机号',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'请输入手机号'
         })
       }else {
-        wx.showToast({
-          title: '手机号错误',
-          duration: 2000,
-          icon: 'none'
-        });
+        $Toast({
+          content: '手机号错误'
+        })
       }
       
       return false;
@@ -37,22 +34,82 @@ Page({
       // 验证密码（6-10位字母，数字）
       console.log(111)
       if(tests.password == '') {
-        wx.showToast({
-          title: '请输入密码',
-          duration: 2000,
-          icon:'none'
+        $Toast({
+          content: '请输入密码'
         })
       } else {
-        wx.showToast({
-          title: '密码错误',
-          duration: 2000,
-          icon: 'none'
-        });
+        $Toast({
+          content: '密码错误'
+        })
       }
       
       return false;
     } else {
       // console.log(1111)
+      // wx.request({
+      //   header: {
+      //     'content-type': 'application/json', // 默认值
+      //     'token': app.globalData.token
+      //   },
+      //   url: app.globalData.URL + '/api/wx/login',
+      //   method:'post',
+      //   data:tests,
+      //   success: function (res) {
+      //     if (res.data.code == 1) {
+      //       console.log(res)
+      //       wx.reLaunch({
+      //         url: '/pages/index/index'
+      //       })
+      //       wx.setStorage({
+      //         key: 'userInfo',
+      //         data: res.data.data.result
+      //       })
+      //       wx.setStorage({
+      //         key: 'token',
+      //         data: res.data.data.token
+      //       })
+      //       app.globalData.userInfo = res.data.data.result
+      //       app.globalData.token = res.data.data.token
+      //     } else if (res.data.code == 99) {
+      //       wx.removeStorage({
+      //         key: 'token',
+      //         success: function (res) {
+      //           wx.redirectTo({
+      //             url: '/pages/login/login',
+      //           })
+      //         },
+      //       })
+      //     } else {
+      //       if (res.data.message) {
+      //         $Toast({
+      //           content: res.data.message
+      //         })
+      //       }
+      //     }
+      //   },
+      //   fail: function (res) {
+      //     wx.showModal({
+      //       title: '提示',
+      //       content: '网络可能出错，请稍后再试',
+      //       success: function (res) {
+      //         if (res.confirm) {
+      //           console.log('sure')
+      //         } else {
+      //           console.log('cancel')
+      //         }
+      //       }
+      //     })
+      //   },
+      //   complete: function (res) {
+      //     // if (isLoading || isLoading == undefined) {
+      //     //   wx.hideLoading()
+      //     // }
+      //   }
+      // })
+
+
+
+
       app.ajaxF({
         url:'/api/wx/login',
         method:'post',

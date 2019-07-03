@@ -18,23 +18,17 @@ Page({
     if (!(/^[0-9]{11}$/.test(e.detail.value.phone))) {
       // 验证电话
       if (e.detail.value.phone == '') {
-        wx.showToast({
-          title: '电话不能为空',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'电话不能为空'
         })
       } else {
-        wx.showToast({
-          title: '请输入11位的数字',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'请输入11位的数字'
         })
       }
     }else if(e.detail.value.phone == $this.data.phone){
-      wx.showToast({
-        title: '请先修改信息',
-        duration:2000,
-        icon:'none'
+      $Toast({
+        content:'请先修改信息'
       })
     }else{
       let data = this.data.user
@@ -45,11 +39,8 @@ Page({
         method: 'post',
         data: data,
         success(res) {
-          // console.log(res)
-          wx.showToast({
-            title: '修改成功',
-            duration: 2000,
-            icon: 'none'
+          $Toast({
+            content:'修改成功'
           })
           setTimeout(() => {
             wx.navigateBack({

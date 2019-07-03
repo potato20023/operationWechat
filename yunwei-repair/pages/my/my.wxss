@@ -1,23 +1,32 @@
 /* pages/my/my.wxss */
 .header{
-  height: 260rpx;
+  height: 300rpx;
   background: linear-gradient(to bottom, #ff8610, #F7BD34);
   padding-top: 40rpx;
-  display: flex;
-  justify-content: center;
-  
+  /* display: flex;
+  justify-content: center; */
+  text-align: center;
 }
 .header .avator{
   width: 180rpx;
   height: 180rpx;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #fff
+  background-color: #fff;
+  margin: 0 auto;
 }
 .header .avator image{
   display: block;
   width: 100%;
   height: 100%;
+}
+.header .totalScore{
+  color:#fff;
+  width: 100%;
+  height:40rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 28rpx;
 }
 .content{
   background-color: #fff;

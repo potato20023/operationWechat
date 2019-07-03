@@ -1,4 +1,5 @@
 //app.js
+const {$Toast} = require('./static/dist/base/index.js')
 App({
   onLaunch: function() {
   
@@ -30,11 +31,11 @@ App({
     isLoading
   }) {
     const $this = this;
-    // if (isLoading || isLoading == undefined) {
-    //   wx.showLoading({
-    //     title: '加载中...',
-    //   })
-    // }
+    if (isLoading || isLoading == undefined) {
+      wx.showLoading({
+        title: '加载中...',
+      })
+    }
     wx.request({
       header: {
         'content-type': 'application/json', // 默认值
@@ -57,10 +58,8 @@ App({
           })
         } else {
           if (res.data.message) {
-            wx.showToast({
-              title: res.data.message,
-              icon: 'none',
-              duration: 2000
+            $Toast({
+              content:res.data.message
             })
           }
         }
@@ -79,9 +78,9 @@ App({
         })
       },
       complete: function(res) {
-        // if (isLoading || isLoading == undefined) {
-        //    wx.hideLoading()
-        // }
+        if (isLoading || isLoading == undefined) {
+           wx.hideLoading()
+        }
       }
     })
   },

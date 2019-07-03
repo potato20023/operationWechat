@@ -93,9 +93,8 @@ Page({
        workerId:$this.data.workerId
      },
      callback:(res)=>{
-      wx.showToast({
-        title:'操作成功',
-        icon:'success'
+      $Toast({
+        content:'操作成功'
       })
        setTimeout(() => {
          wx.hideToast()
@@ -181,9 +180,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let {
-      id
-    } = options;
+    console.log(options)
+    let {id} = options;
     this.setData({
       id: id
     })

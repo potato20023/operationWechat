@@ -1,0 +1,78 @@
+/* pages/showModel/showModel.wxss */
+page{
+  height:100%;
+}
+.showModel{
+  width: 100%;
+  height:100%;
+  padding: 370rpx 40rpx 0 40rpx;
+  background-color: rgba(0, 0, 0, 0.2)
+}
+.showModel .model{
+  width: 100%;
+  height:370rpx;
+  /* border: 1px solid red; */
+  position: relative;
+  
+}
+.showModel .model .bg{
+  width: 100%;
+  height:370rpx;
+  position: absolute;
+  top: 0;
+  left:0;
+}
+.showModel .model .con{
+  width: 100%;
+  height:370rpx;
+  position: absolute;
+  top: 0;
+  left:0;
+}
+.showModel .model .con .title{
+  margin-top: 150rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.showModel .model .con .choose{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 70rpx;
+}
+.showModel .model .con .choose .item{
+  width: 150rpx;
+  height:60rpx;
+  position: relative;
+}
+.showModel .model .con .choose .see{
+  color:#fff;
+}
+.showModel .model .con .choose .item text{
+  position: absolute;
+  left: 20rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  /* text-align: center; */
+}
+.showModel .model .choose_bg{
+  width: 150rpx;
+  height:60rpx;
+}
+/* .showModel .model .title{
+  position: absolute;
+  top:100rpx;
+  text-align: center;
+}
+.showModel .model .choose{
+  width:200rpx;
+  height:50rpx;
+  position: absolute;
+  top:200rpx;
+}
+.showModel .model .after{
+  left:60rpx;
+}
+.showModel .model .see{
+  right:60rpx;
+} */

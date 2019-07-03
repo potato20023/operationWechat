@@ -6,7 +6,7 @@
       <image src='{{headUrl}}'></image>
     </view>
     <view class='desc'>
-      <text class='name'>{{name}}</text> {{address}}
+      <text class='name'>{{name}}</text>积分: {{totalScore}}
     </view>
   </view>
   <!-- 工单列表 -->
@@ -38,4 +38,6 @@
     </view>   
   </view>
    <i-divider wx:if="{{endPage && list.length > 0}}" content="加载已经完成,没有其他数据" color="#ff8610" lineColor="#ff8610"></i-divider>
+
+   <i-toast id="toast"/>
 </view>

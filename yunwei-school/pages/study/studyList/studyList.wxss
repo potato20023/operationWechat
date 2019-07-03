@@ -31,7 +31,14 @@ page{
   justify-content: space-between;
   border-bottom: 1rpx solid #f1f1f1; 
 }
-.container .list .item .label{
+.container .list .item .label image{
+  width: 35rpx;
+  height:35rpx;
+  position: relative;
+  top: -22rpx;
+  margin-right: 15rpx;
+}
+.container .list .item .label text{
   font-weight: 400;
   display: inline-block;
   width: 500rpx;
@@ -47,4 +54,15 @@ page{
   height:80rpx;
   text-align: center;
   letter-spacing: 4rpx;
+}
+.container .list .item .down1{
+  padding: 10rpx 10rpx 0 0;
+}
+.container .list .item .down1 image{
+  width: 40rpx;
+  height:40rpx;
+}
+.container .list .item .visited{
+  /* width: 50rpx;
+  height:50rpx; */
 }

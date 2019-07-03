@@ -5,4 +5,5 @@
     <view class='typeName'>{{item.type}}</view>
     <view class='num'>数量:{{item.count}}</view>
   </view>
+  <i-toast id="toast" />
 </view>

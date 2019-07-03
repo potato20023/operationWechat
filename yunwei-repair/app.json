@@ -5,7 +5,8 @@
     "pages/list/list",
     "pages/item/item",
     "pages/my/my",
-    "pages/end/end"
+    "pages/end/end",
+    "pages/showModel/showModel"
   ],
   "permission": {
     "scope.userLocation": {
@@ -36,7 +37,7 @@
         "selectedIconPath": "./assets/img/liebiao.png"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/list/list",
         "text": "我的",
         "iconPath": "./assets/img/wode1.png",
         "selectedIconPath": "./assets/img/wode.png"

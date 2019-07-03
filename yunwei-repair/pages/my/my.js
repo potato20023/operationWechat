@@ -11,7 +11,8 @@ Page({
     phone:'',
     name:'',
     address:'',
-    phone:''
+    phone:'',
+    totalScore:''
   },
 
   // 退出
@@ -45,7 +46,8 @@ Page({
           name:data.name,
           address: data.address,
           jobNumber: data.jobNumber,
-          avator: app.globalData.appPath + '/public/user/morentoux.png'
+          avator: app.globalData.appPath + '/public/user/morentoux.png',
+          totalScore: data.totalScore
         })
       },
     })

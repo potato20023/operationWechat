@@ -3,13 +3,6 @@
   <!-- 设备详情 -->
   <view class='con'>
     <view class='details'>
-      <!-- <view class='num detail'>
-        <view class='label'>
-          <image src='/static/img/num.jpg'></image>
-          <view class='label_name'>设备编号</view>
-        </view>
-        <view class='detail_con'>{{info.deviceId}}</view>
-      </view> -->
       <view class='num detail'>
         <view class='label'>
           <image src='/static/img/num.jpg'></image>
@@ -17,12 +10,27 @@
         </view>
         <view class='detail_con'>{{info.id}}</view>
       </view>
+      <view class='num detail'>
+        <view class='label'>
+          <image src='/static/img/num.jpg'></image>
+          <view class='label_name'>设备编号</view>
+        </view>
+        <view class='detail_con'>{{info.deviceId}}</view>
+      </view>
+      
       <view class='type detail'>
         <view class='label'>
           <image src='/static/img/type.jpg'></image>
           <view class='label_name'>类型</view>
         </view>
         <view class='detail_con'>{{info.typeName}}</view>
+      </view>
+      <view class='school detail'>
+        <view class='label'>
+          <image src='/static/img/school.jpg'></image>
+          <view class='label_name'>学校</view>
+        </view>
+        <view class='detail_con'>{{info.xxmc}}</view>
       </view>
       <view class='school detail' wx:if='{{info.workername}}'>
         <view class='label'>
@@ -105,5 +113,5 @@
       {{info.evaluateDesc}}
     </view>
   </view>
-
+<i-toast id="toast" />
 </view>

@@ -51,7 +51,7 @@ Page({
       $this.setData({
         typeId:options.typeId
       })
-      $this.getList()
+      // $this.getList()
     }
     
   },
