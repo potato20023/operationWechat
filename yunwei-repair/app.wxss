@@ -93,8 +93,7 @@ view{
  /* 站位图 */
 .zhanwei{
   text-align: center;
-  padding-top:80rpx; 
-  
+  padding-top:200rpx; 
   color: #666;
 }
 .zhanwei image{

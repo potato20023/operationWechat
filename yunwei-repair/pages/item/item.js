@@ -50,32 +50,9 @@ Page({
           let data1 = arr.filter(item => {
             return item.orderStatus == 3
           })
-          // $this.setData({
-          //   equipmentId: data.equipmentId,
-          //   schoolId: data.schoolId,
-          //   remark: arr,
-          //   faultDesc: data.faultDesc,
-          //   tagId: data.tagId,
-          //   userId: data.userId,
-          //   status: data.status,
-          //   createTime: data.createTime,
-          //   picture: JSON.parse(data.picture),
-          //   updateTime: data.updateTime,
-          //   workerId: data.workerId,
-          //   workername: data.workername,
-          //   awatar: data.awatar,
-          //   name: data.name,
-          //   type: data.type,
-          //   xxmc: data.xxmc,
-          //   userName: data.userName,
-          //   phone: data.phone,
-          //   xxdz: data.xxdz,
-          //   b: data1[0] ? data1[0]:'',
-          //   evaDesc: data.evaDesc,   // 评论描述
-          //   requireSpeed:
-          // })\
           $this.setData({
             ...data,
+            b: data1[0] ? data1[0] : '',
             picture: JSON.parse(data.picture),
           })
         }

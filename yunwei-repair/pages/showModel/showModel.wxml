@@ -3,7 +3,7 @@
   <view class='model'>
     <image src='/assets/img/showModel_bg.png' class='bg'></image>
     <view class='con'>
-      <view class='title'>您有新的任务,快去处理吧!</view>
+      <view class='title'>您有 {{length}} 条新任务!</view>
       <view class='choose'>
         <view class='after item' bindtap='back'>
           <image src='/assets/img/showModel_1.png' class='choose_bg'></image>

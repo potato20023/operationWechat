@@ -19,7 +19,7 @@ Page({
     offset:1,
     endPage:false,
     headUrl:'',  // 默认头像
-    totalScore:''
+    totalScore:0
   },
 
  
@@ -38,11 +38,11 @@ Page({
       name:userInfo.name,
       address:userInfo.address,
       workId:userInfo.jobNumber,
-      totalScore: userInfo.totalScore,
+      totalScore: userInfo.totalScore ? userInfo.totalScore:0,
       headUrl: app.globalData.appPath + '/public/user/morentoux.png'
     })
     // this.websocket();
-    this.getOrderList();
+    // this.getOrderList();
   },
   // 获取展示工单
   getOrderList(){

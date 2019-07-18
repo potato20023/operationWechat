@@ -3,8 +3,8 @@
   <view class='deviceDetail'>
     <view class='detail_1'>
       <view>
-        <image src='{{list.awatar}}'></image>
-        <!-- <image src='/static/img/school3.png'></image> -->
+        <image wx:if='{{list.awatar}}' src='{{list.awatar}}'></image>
+        <image wx:else src='/static/img/device.png'></image>
       </view>
       
       <view class='detail_1r'>

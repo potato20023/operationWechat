@@ -1,7 +1,10 @@
 // pages/login/login.js
-
 const app = getApp();
 const {$Toast}  = require('../../assets/dist/base/index.js')
+const io = require('../../utils/weapp.socket.io.js');
+const socket = io(app.globalData.appPath + '/wx')
+
+
 Page({
 
   /**
@@ -42,13 +45,99 @@ Page({
           wx.reLaunch({
             url: '/pages/index/index',
           })
-          $this.globalData.token = res.data.token;
-          $this.globalData.userInfo = res.data.result;
+          app.globalData.token = res.data.token;
+          app.globalData.userInfo = res.data.result;
+          $this.websocket();
         }
       })
 
     }
   },
+
+  websocket() {
+    const socket = io(app.globalData.appPath + '/wx');
+    const workerId = app.globalData.token;
+    socket.on('connect', _ => {
+      console.log('connect')
+      // $Toast({
+      //   content: 'socket 通信建立'
+      // })
+    })
+    socket.on('online', res => {
+      // console.log(res)
+    })
+    socket.on('disconnect', _ => {
+      // $Toast({
+      //   content: 'socket 通信断开'
+      // })
+    })
+
+    socket.emit('wx', {
+      workerId: workerId,
+      sureOrder: false
+    })
+    socket.on(workerId, res => {
+      // console.log(res)
+      let result = JSON.parse(res);
+
+      let length = result.length
+      if (length > 0) {
+        console.log(length)
+        if(app.globalData.token){
+          wx.reLaunch({
+            url: '/pages/showModel/showModel?length=' + length + '&back=false',
+            success(res) {
+              console.log('跳转了')
+            }
+          })
+
+          // 音效
+          const innerAudioContext = wx.createInnerAudioContext()
+          innerAudioContext.autoplay = true  // 是否自动开始播放，默认为 false
+          innerAudioContext.loop = false  // 是否循环播放，默认为 false
+
+          innerAudioContext.src = '/assets/voice/voice1.mp3';  // 音频资源的地址
+          innerAudioContext.onPlay(() => {  // 监听音频播放事件
+            // console.log('开始播放')
+          })
+
+          innerAudioContext.onError((res) => { // 监听音频播放错误事件
+            console.log(res.errMsg)
+            console.log(res.errCode)
+          })
+
+
+          // 震动
+          wx.vibrateShort({
+            success: function (res) {
+              // console.log('震动short' + res)
+            },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        // wx.showModal({
+        //   title: '提示',
+        //   content: '你有'+result.length+'条消息',
+        //   success:(res)=>{
+        //     if(res.confirm){
+        //       socket.emit('wx',{
+        //         workerId: workerId,
+        //         sureOrder: true
+        //       })
+        //     }else{ 
+        //       console.log('cancel')
+        //     }
+        //   }
+        // })
+        }
+        
+
+        
+      }
+    })
+  },
+
+
   //
   setUsername(e){
     let {detail} = e.detail;

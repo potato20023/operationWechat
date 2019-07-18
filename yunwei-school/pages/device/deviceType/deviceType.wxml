@@ -1,9 +1,13 @@
 <!--pages/device/deviceType/deviceType.wxml-->
-<view class='container deviceType'>
+<view wx:if='{{typeList.length > 0}}' class='container deviceType'>
   <view class='item' wx:for='{{typeList}}' wx:key='{{index}}' bindtap='toDeviceList' id='{{item.equipmentId}}'>
-    <image src='{{item.awatar}}'></image>
+    <image wx:if='{{item.awatar}}' src='{{item.awatar}}'></image>
+    <image wx:else src='/static/img/device.png'></image>
     <view class='typeName'>{{item.type}}</view>
     <view class='num'>数量:{{item.count}}</view>
   </view>
   <i-toast id="toast" />
+</view>
+<view wx:else class='notype'>
+  <image src='/static/img/notype.png'></image>
 </view>

@@ -37,7 +37,7 @@
         "selectedIconPath": "./assets/img/liebiao.png"
       },
       {
-        "pagePath": "pages/list/list",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "./assets/img/wode1.png",
         "selectedIconPath": "./assets/img/wode.png"

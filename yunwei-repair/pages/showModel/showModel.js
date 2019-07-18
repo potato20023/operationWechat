@@ -1,26 +1,50 @@
 // pages/showModel/showModel.js
 const app = getApp()
+const io = require('../../utils/weapp.socket.io.js')
+const socket = io(app.globalData.appPath + '/wx');
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    id:''  // 工单id
+    id:'',  // 工单id
+    length:0,   // 几条待接工单
+    back:true
   },
 
   // 稍后处理
   back(){
-    wx.navigateBack({
-      delta:1
+    if (this.data.back == 'true') {
+      wx.navigateBack({
+        delta: 1
+      })
+    }else if(this.data.back == 'false'){
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    }
+    
+    socket.emit('wx',{
+      workerId:app.globalData.token,
+      sureOrder: true
     })
+    // console.log('稍后处理')
   },
 
   // 查看详情
   toDetail(){
+    
     wx.reLaunch({
-      url: '/pages/item/item?id=' + this.data.id,
+      url: '/pages/list/list'
     })
+    socket.emit('wx', {
+      workerId: app.globalData.token,
+      sureOrder: true
+    })
+    // console.log('查看详情')
   },
 
   /**
@@ -29,7 +53,8 @@ Page({
   onLoad: function (options) {
     console.log(options)
     this.setData({
-      id:options.id
+      length:options.length,
+      back:options.back
     })
   },
 
