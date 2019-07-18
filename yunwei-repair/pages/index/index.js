@@ -2,7 +2,8 @@
 const app = getApp()
 const utils = require('../../utils/util.js')
 
-const io = require('../../utils/weapp.socket.io.js')
+
+
 
 Page({
 
@@ -17,23 +18,15 @@ Page({
     count:0,
     offset:1,
     endPage:false,
-    headUrl:''  // 默认头像
+    headUrl:'',  // 默认头像
+    totalScore:0
   },
 
-  websocket(){
-    const socket = io('http://localhost:8080')
+ 
 
-    socket.on('connect',function(){
-      console.log('connected')
-    })
+  // 音频
+  vioce(){
 
-    socket.on('new', d => {
-      console.log('received news: ', d)
-    })
-
-    socket.emit('new', {
-      title: 'this is a news'
-    })
   },
 
   /**
@@ -45,11 +38,11 @@ Page({
       name:userInfo.name,
       address:userInfo.address,
       workId:userInfo.jobNumber,
-      totalScore: userInfo.totalScore,
+      totalScore: userInfo.totalScore ? userInfo.totalScore:0,
       headUrl: app.globalData.appPath + '/public/user/morentoux.png'
     })
     // this.websocket();
-    //this.getOrderList();
+    // this.getOrderList();
   },
   // 获取展示工单
   getOrderList(){

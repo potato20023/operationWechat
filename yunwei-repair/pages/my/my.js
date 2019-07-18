@@ -1,6 +1,7 @@
 // pages/my/my.js
 const app = getApp();
-
+const io = require('../../utils/weapp.socket.io.js')
+const socket = io(app.globalData.appPath + '/wx');
 Page({
 
   /**
@@ -12,21 +13,25 @@ Page({
     name:'',
     address:'',
     phone:'',
-    totalScore:''
+    totalScore:0
   },
 
   // 退出
   signOut(){
+    
     wx.showModal({
       title: '提示',
       content: '是否确认退出登录',
       success(res){
         if(res.confirm){
-          app.globalData.userInfo = null;
-          wx.clearStorage()
+          // 关闭通信
+          // socket.disconnect();
           wx.reLaunch({
             url: '/pages/login/login'
           })
+          app.globalData.userInfo = null;
+          app.globalData.token = null;
+          wx.clearStorage()
         }
       }
     })
@@ -47,7 +52,7 @@ Page({
           address: data.address,
           jobNumber: data.jobNumber,
           avator: app.globalData.appPath + '/public/user/morentoux.png',
-          totalScore: data.totalScore
+          totalScore: data.totalScore ? data.totalScore:0
         })
       },
     })

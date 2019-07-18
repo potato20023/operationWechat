@@ -1,6 +1,6 @@
 // pages/device/writeDevice/writeDevice.js
 const app = getApp();
-
+const {$Toast} = require("../../../static/dist/base/index.js")
 Page({
 
   /**
@@ -25,14 +25,12 @@ Page({
             // console.log(schoolId)
             // 没有报修过,又是本校老师
             if (deviceStatus != 1){
-              wx.showToast({
-                title: '本设备已报修过',
-                duration:2000
+              $Toast({
+                content:'本设备已报修过'
               })
             } else if (schoolId != app.globalData.userInfo.schoolId){
-              wx.showToast({
-                title: '非本校管理员',
-                duration: 2000
+              $Toast({
+                content:'非本校管理员'
               })
             }else{
               wx.navigateTo({
@@ -46,9 +44,8 @@ Page({
         }
       })
     }else{
-      wx.showToast({
-        title: '请先输入编号',
-        duration:2000
+      $Toast({
+        content:'请先输入编号'
       })
     }
 

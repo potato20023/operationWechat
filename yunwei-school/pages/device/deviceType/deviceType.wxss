@@ -23,6 +23,12 @@ page{
   font-size: 28rpx;
   padding: 12rpx 6rpx 6rpx 6rpx;
 }
+.container .item .typeName{
+  width:80%;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .container .item .num{
   color:#b3bbc7;
   font-size: 24rpx;
@@ -30,4 +36,15 @@ page{
 .container .item image{
   width: 100rpx;
   height:100rpx;
+}
+
+.notype{
+  width:100%;
+  height:100%;
+}
+.notype image{
+  width:680rpx;
+  height:629rpx;
+  margin: 100rpx auto 0;
+  display: block;
 }

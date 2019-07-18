@@ -54,20 +54,15 @@ Page({
                     console.log($this.data.imgUrls)
                   },
                   fail(res) {
-                    wx.showToast({
-                      title: '上传失败',
-                      duration:2000,
-                      icon:'none'
+                    $Toast({
+                      content:'上传失败'
                     })
                   }
                 })
               },
               fail(res) {
-                // console.log(res)
-                wx.showToast({
-                  title: '压缩失败',
-                  duration:2000,
-                  icon:'none'
+                $Toast({
+                  content:'压缩失败'
                 })
               }
             })
@@ -75,19 +70,15 @@ Page({
 
         },
         fail: function (res) {
-          wx.showToast({
-            title: '选择失败',
-            duration:2000,
-            icon:'none'
+          $Toast({
+            content:'选择失败'
           })
         },
         complete: function (res) { },
       })
     } else {
-      wx.showToast({
-        title: '最多只能上传3张图片',
-        duration: 2000,
-        icon: 'none'
+      $Toast({
+        content:'最多只能上传3张图片'
       })
     }
   },

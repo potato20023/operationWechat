@@ -60,11 +60,9 @@ Page({
                         method: 'post',
                         data: data,
                         success(res) {
-                          console.log('更新成功')
-                          wx.showToast({
-                            title: '修改成功',
-                            duration:2000,
-                            icon:'none'
+                          // console.log('更新成功')
+                          $Toast({
+                            content:'修改成功'
                           })
                           setTimeout(() => {
                             wx.redirectTo({

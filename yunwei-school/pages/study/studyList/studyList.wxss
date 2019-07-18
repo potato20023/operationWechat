@@ -62,7 +62,7 @@ page{
   width: 40rpx;
   height:40rpx;
 }
-
 .container .list .item .visited{
-  background-color: red;
+  /* width: 50rpx;
+  height:50rpx; */
 }

@@ -62,10 +62,8 @@ Page({
         method: 'post',
         data: data,
         success(res) {
-          wx.showToast({
-            title: '成功',
-            icon:'success',
-            duration:2000
+          $Toast({
+            content:'成功'
           })
           setTimeout(()=>{
             wx.navigateBack({

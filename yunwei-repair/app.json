@@ -5,7 +5,8 @@
     "pages/list/list",
     "pages/item/item",
     "pages/my/my",
-    "pages/end/end"
+    "pages/end/end",
+    "pages/showModel/showModel"
   ],
   "permission": {
     "scope.userLocation": {

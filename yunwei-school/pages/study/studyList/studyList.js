@@ -14,29 +14,28 @@ Page({
 
   // 下载
   down(e){
-    console.log(e)
-    let url = e.target.dataset.url
-    // 下载文件
-    // wx.downloadFile({
-    //   url:app.globalData.URL + url,
-    //   // url:'http://192.168.17.146:7001/public/admin/file/56c7fd843551285eda8d069465334a02.docx',
-    //   success(res){
-    //     console.log(res)
-    //     let openUrl = res.tempFilePath
-    //     // 下载后打开文件
-    //     wx.openDocument({
-    //       filePath: openUrl,
-    //       success(res){
-    //         // wx.showToast({
-    //         //   title: '打开成功',
-    //         //   icon: 'success',
-    //         //   duration: 2000
-    //         // })
-    //       }
-    //     })
+    // console.log(e)
+    let url = e.currentTarget.dataset.url
+    wx.showLoading({
+      title: '加载中...',
+    })
+    //下载文件
+    wx.downloadFile({
+      url:app.globalData.URL + url,
+      // url:'http://192.168.17.146:7001/public/admin/file/56c7fd843551285eda8d069465334a02.docx',
+      success(res){
+        // console.log(res)
+        let openUrl = res.tempFilePath
+        // 下载后打开文件
+        wx.openDocument({
+          filePath: openUrl,
+          success(res){
+            wx.hideLoading()
+          }
+        })
         
-    //   }
-    // })
+      }
+    })
   },
 
   // 获取列表

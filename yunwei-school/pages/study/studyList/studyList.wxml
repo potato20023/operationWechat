@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='list' wx:if='{{list1.length > 0}}'>
     <view class='list_title'>设备资料</view>
-    <view class='item' wx:for='{{list1}}' wx:key='{{index}}'>
+    <view class='item' wx:for='{{list1}}' wx:key='{{index}}' bindtap='down' data-url='{{item.url}}'>
       <view class='label'>
         <image wx:if='{{item.suffix == "doc"}}' src='/static/img/doc.png'></image>
         <image wx:if='{{item.suffix == "ppt"}}' src='/static/img/ppt.png'></image>
@@ -10,15 +10,15 @@
         <text>{{item.name}}</text>
       </view>
       <!-- <view class='down' bindtap='down' data-url='{{item.url}}'>下载</view> -->
-      <view class='down1' bindtap='down' data-url='{{item.url}}'>
+      <view class='down1'>
         <image src='/static/img/downloading.png'></image>
       </view>
     </view>
   </view>
 
   <view class='list' wx:if='{{list2.length > 0}}'>
-    <view class='list_title'>维修注意事项</view>
-    <view class='item' wx:for='{{list2}}' wx:key='{{index}}'>
+    <view class='list_title'>操作说明</view>
+    <view class='item' wx:for='{{list2}}' wx:key='{{index}}' bindtap='down' data-url='{{item.url}}'>
       <view class='label'>
         <image wx:if='{{item.suffix == "doc"}}' src='/static/img/doc.png'></image>
         <image wx:if='{{item.suffix == "ppt"}}' src='/static/img/ppt.png'></image>
@@ -26,9 +26,11 @@
         <text>{{item.name}}</text>
       </view>
       <!-- <view class='down' bindtap='down' data-url='{{item.url}}'>下载</view> -->
-      <view class='down1' bindtap='down' data-url='{{item.url}}' hover-class='visited'>
+      <view class='down1'>
         <image src='/static/img/downloading.png'></image>
       </view>
     </view>
   </view>
+
+  <i-toast id="toast" />
 </view>

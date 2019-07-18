@@ -13,38 +13,29 @@ Page({
     if (!(/^[a-zA-Z0-9_]{6,10}$/.test(e.detail.value.oldPassword))) {
       // 验证密码（6-10位字母，数字）
       if (e.detail.value.oldPassword == '') {
-        wx.showToast({
-          title: '原密码不能为空',
-          duration:2000,
-          icon:'none'
+        $Toast({
+          content:'原密码不能为空'
         })
       } else {
-        wx.showToast({
-          title: '请输入6-10位的字母和数字作为密码',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'请输入6-10位的字母和数字作为密码'
         })
       }
     } else if (!(/^[a-zA-Z0-9_]{6,10}$/.test(e.detail.value.newPassword1))) {
       // 验证密码（6-10位字母，数字）
       if (e.detail.value.newPassword1 == '') {
-        wx.showToast({
-          title: '密码不能为空',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'密码不能为空'
         })
       } else {
-        wx.showToast({
-          title: '请输入6-10位的字母和数字作为新密码',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'请输入6-10位的字母和数字作为新密码'
         })
       }
     } else if (e.detail.value.newPassword1 != e.detail.value.newPassword2){
-      wx.showToast({
-        title: '请输入一样的密码',
-        duration: 2000,
-        icon: 'none'
+      
+      $Toast({
+        content:'请输入一样的密码'
       })
     }  else {
       let $this = this;
@@ -57,10 +48,8 @@ Page({
         method: 'post',
         data: data,
         success(res) {
-          wx.showToast({
-            title: '修改成功',
-            duration: 2000,
-            icon: 'none'
+          $Toast({
+            content:'修改成功'
           })
           setTimeout(()=>{
             wx.navigateBack({

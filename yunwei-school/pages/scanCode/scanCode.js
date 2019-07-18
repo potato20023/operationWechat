@@ -1,6 +1,6 @@
 // pages/repair/repair.js
 const app = getApp()
-const { $Message } = require('../../static/dist/base/index.js');
+const { $Message,$Toast } = require('../../static/dist/base/index.js');
 
 
 Page({
@@ -90,20 +90,15 @@ Page({
                     console.log($this.data.imgUrls)
                   },
                   fail(res) {
-                    wx.showToast({
-                      title: '上传失败',
-                      icon: 'none',
-                      duration: 1000
+                    $Toast({
+                      contnet:'上传失败'
                     })
                   }
                 })
               },
               fail(res) {
-                console.log(res)
-                wx.showToast({
-                  title: '压缩失败',
-                  icon:'none',
-                  duration:1000
+                $Toast({
+                  contnet:'压缩失败'
                 })
               }
             })
@@ -111,19 +106,15 @@ Page({
 
         },
         fail: function (res) {
-          wx.showToast({
-            title: '选择失败',
-            icon: 'none',
-            duration: 1000
+          $Toast({
+            contnet:'选择失败'
           })
         },
         complete: function (res) { },
       })
     } else {
-      wx.showToast({
-        title: '最多只能上传3张图片',
-        icon: 'none',
-        duration: 1000
+      $Toast({
+        contnet:'最多只能上传3张图片'
       })
     }
   },
@@ -174,22 +165,17 @@ Page({
     tests.faultDesc = e.detail.value.faultDesc
     console.log(tests)
     if (!tests.faultDesc) {
-      wx.showToast({
-        title: '请输入故障描述',
-        duration: 2000,
-        icon: 'none'
+      $Toast({
+        content:'请输入故障描述'
       })
     } else if (!tests.tagId) {
-      wx.showToast({
-        title: '请选择故障标签',
-        duration: 2000,
-        icon: 'none'
+      $Toast({
+        content:'请选择故障标签'
       })
     } else if ($this.data.imgUrl.length > 0 && ($this.data.imgUrl.length != $this.data.imgUrls.length)) {
-      wx.showToast({
-        title: '图片上传中...',
-        duration: 2000,
-        icon: 'none'
+      
+      $Toast({
+        content:'图片上传中...'
       })
     } else if ($this.data.id) {
       app.ajaxF({
@@ -198,10 +184,14 @@ Page({
         data: tests,
         success: function (res) {
           // console.log(res)
-          wx.showToast({
-            title: '成功',
-            icon:'success',
-            duration:2000
+          // wx.showToast({
+          //   title: '成功',
+          //   icon:'success',
+          //   duration:2000
+          // })
+          $Toast({
+            content:'成功',
+            type:'success'
           })
           setTimeout(()=>{
             wx.navigateBack({
@@ -216,10 +206,14 @@ Page({
         method: 'post',
         data: tests,
         success: function (res) {
-          wx.showToast({
-            title: '成功',
-            icon: 'success',
-            duration: 2000
+          wx.showTo////////ast({
+          //   title: '成功',
+          //   icon: 'success',
+          //   duration: 2000
+          // })
+          $Toast({
+            content: '成功',
+            type: 'success'
           })
           setTimeout(() => {
             wx.navigateBack({

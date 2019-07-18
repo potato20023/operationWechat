@@ -122,5 +122,6 @@
       <text>还没有订单哟...</text>
     </view>    
   </view>
+  <i-toast id="toast" />
 </view>
 

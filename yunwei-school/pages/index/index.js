@@ -1,5 +1,6 @@
 
 let app = getApp()
+const { $Toast } = require('../../static/dist/base/index.js')
 Page({
 
   /**
@@ -33,16 +34,12 @@ Page({
                 console.log(schoolId)
                 // 没有报修过,又是本校老师
                 if (deviceStatus != 1){
-                  wx.showToast({
-                    title: '本设备已报修过',
-                    icon: 'none',
-                    duration:2000
+                  $Toast({
+                    content:'本设备已报修过'
                   })
                 } else if (schoolId != app.globalData.userInfo.schoolId){
-                  wx.showToast({
-                    title: '非本校管理员',
-                    icon: 'none',
-                    duration: 2000
+                  $Toast({
+                    content: '非本校管理员'
                   })
                 }else{
                   wx.navigateTo({

@@ -1,4 +1,5 @@
 //app.js
+const {$Toast} = require('./static/dist/base/index.js')
 App({
   onLaunch: function() {
   
@@ -57,10 +58,8 @@ App({
           })
         } else {
           if (res.data.message) {
-            wx.showToast({
-              title: res.data.message,
-              icon: 'none',
-              duration: 2000
+            $Toast({
+              content:res.data.message
             })
           }
         }
@@ -105,10 +104,8 @@ App({
 
   globalData: {
     userInfo: {},
-    // URL: "http://192.168.18.114:7001",
-    // URL: "http://112.124.203.17:7001",
-    // URL: "http://192.168.17.190:7001",
-    URL: "http://192.168.17.146:7001",
+    // URL: "http://192.168.17.146:7001",
+    URL:"https://apiwxd.club",
     token:'' 
   }
 })

@@ -1,0 +1,85 @@
+/* pages/showModel/showModel.wxss */
+page{
+  height:100%;
+  position:relative;
+}
+.showModel{
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+  padding: 370rpx 40rpx 0 40rpx;
+  background-color: rgba(0, 0, 0, 0.2)
+}
+.showModel .model{
+  width: 100%;
+  height:335rpx;
+  /* border: 1px solid red; */
+  position: relative;
+  
+}
+.showModel .model .bg{
+  width: 100%;
+  height:335rpx;
+  position: absolute;
+  top: 0;
+  left:0;
+}
+.showModel .model .con{
+  width: 100%;
+  height:335rpx;
+  position: absolute;
+  top: 0;
+  left:0;
+}
+.showModel .model .con .title{
+  margin-top: 120rpx;
+  /* text-align: center; */
+  padding-left:150rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  letter-spacing: 5rpx;
+}
+.showModel .model .con .choose{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 70rpx;
+  padding: 0 50rpx;
+}
+.showModel .model .con .choose .item{
+  width: 167rpx;
+  height:53rpx;
+  position: relative;
+}
+.showModel .model .con .choose .see{
+  color:#fff;
+}
+.showModel .model .con .choose .item text{
+  position: absolute;
+  left: 35rpx;
+  font-size: 24rpx;
+  line-height: 53rpx;
+  /* text-align: center; */
+}
+.showModel .model .choose_bg{
+  width: 167rpx;
+  height:53rpx;
+}
+/* .showModel .model .title{
+  position: absolute;
+  top:100rpx;
+  text-align: center;
+}
+.showModel .model .choose{
+  width:200rpx;
+  height:50rpx;
+  position: absolute;
+  top:200rpx;
+}
+.showModel .model .after{
+  left:60rpx;
+}
+.showModel .model .see{
+  right:60rpx;
+} */

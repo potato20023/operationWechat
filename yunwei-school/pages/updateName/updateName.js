@@ -18,23 +18,17 @@ Page({
     if (!(/^[\u4E00-\u9FA5]{2,4}$/.test(e.detail.value.name))) {
       // 验证姓名（2-4位汉字） 
       if (e.detail.value.name == '') {
-        wx.showToast({
-          title: '姓名不能为空',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'姓名不能为空'
         })
       } else {
-        wx.showToast({
-          title: '请输入2-4位汉字',
-          duration: 2000,
-          icon: 'none'
+        $Toast({
+          content:'请输入2-4位汉字'
         })
       }
     }else if(e.detail.value.name == $this.data.name){
-      wx.showToast({
-        title: '请先修改信息',
-        duration:2000,
-        icon:'none'
+      $Toast({
+        content:'请先修改信息'
       })
     }else{
       let data = this.data.user
@@ -45,10 +39,8 @@ Page({
         method:'post',
         data:data,
         success(res){
-          wx.showToast({
-            title: '修改成功',
-            duration: 2000,
-            icon: 'none'
+          $Toast({
+            content:'修改成功'
           })
           setTimeout(() => {
             wx.navigateBack({
